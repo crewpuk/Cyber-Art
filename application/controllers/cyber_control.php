@@ -12,7 +12,8 @@ class Cyber_control extends CI_Controller{
 		$data['css'] = link_tag('style/style.css');
 		$data['css'] .= link_tag('style/layout.css');
 		$data['css'] .= link_tag('style/class.css');
-		$data['art'] = $this->cyber_model->get_all_data('m_posting');
+		$data['art'] = $this->cyber_model->get_all_data('m_posting',0,3);
+		$data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
 		$this->load->view('main',$data);		
 	}
 }

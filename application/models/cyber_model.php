@@ -9,12 +9,16 @@ class Cyber_model extends CI_Model{
 		$this->db->insert($table,$set);	
 	}
 	
-	function get_all_data($table){
-		return $this->db->get($table)->result();
+	function get_all_data($table,$limitStart='',$limitEnd=''){
+		return $this->db->get($table,$limitEnd,$limitStart)->result();
 	}
 	
 	function get_id($table,$id){
 		return $this->db->where('id',$id)->get($table)->row();
+	}
+	
+	function distinct($column,$table){
+		return $this->db->query("SELECT DISTINCT `".$column."` FROM `".$table."`")->result();	
 	}
 	
 	function delete($table,$id){
