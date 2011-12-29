@@ -38,7 +38,8 @@ echo $css;
 				  "src" => "images/art/".$a->image."",
 				  "width" => "300",
 				  "height" => "200",
-				  "title" => "".$a->image.""
+				  "title" => "".$a->image."",
+				  "alt" => "".$a->image.""
 				  );
 			 ?>
             	<div class="artHead">Posted On : <?php echo $date ?></div>
@@ -53,8 +54,10 @@ echo $css;
                 	<div id="innerHead">
                     	<div id="checklist"></div>
                         <div id="textHead">Berita Sebelumnya</div>
-                    </div>
-                    <div id="inner">Inner</div>
+					</div>
+                    <?php foreach($berita as $b) { ?>
+                    <div id="inner" class="list"><ul><li><?php echo anchor('#',$b->title) ?></li></ul></div>
+                    <?php } ?>
                 </div>
 			<!------------------------- Inner Navigation 1.2  -------------------------->
                 <div id="innerNav">
@@ -74,7 +77,21 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Testimonial</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <?php foreach($testimoni as $t) { ?>
+                    <div id="inner">
+                    <?php
+                    $img = array(
+					"src" => "images/".$t->photo,
+					"width" => 50,
+					"height" => 50,
+					"title" => "".$t->nama."\n".$t->jabatan."",
+					"alt" => "".$t->photo.""
+					);
+					echo "<div class='testiGambar'>".img($img)."</div>";
+					echo "<div class='testi'>".$t->komentar."</div>";
+					?>
+                    </div>
+                    <?php } ?>
                 </div>
                 <!------------------------- Inner Navigation 2.2  -------------------------->    
                 <div id="innerNav">
@@ -83,7 +100,7 @@ echo $css;
                         <div id="textHead">Kategori Berita</div>
                     </div>
                     <?php foreach($kategori as $kat) { ?>
-                    <div id="inner" class="list"><ul><li><?php echo $kat->kategori ?></li></ul></div>
+                    <div id="inner" class="list"><ul><li><?php echo anchor('#',$kat->kategori) ?></li></ul></div>
                     <?php } ?>
                 </div>            
                 <!------------------------- Inner Navigation 2.3  -------------------------->    
