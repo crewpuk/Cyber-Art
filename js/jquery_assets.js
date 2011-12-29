@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    $(".tabLink").each(function(){
+    $(".tab").each(function(){
         $(this).click(function(){
-            tabeId = $(this).attr('id');
+            tabelId = $(this).attr('id');
             $(".tab").removeClass("activeTab");
             $(this).addClass("activeTab");
             $(".contentTab").addClass("hide");
-            $("#"+tabeId+"_content").removeClass("hide");
+            $("#"+tabelId+"_content").removeClass("hide");
             return false;
         });
     });
