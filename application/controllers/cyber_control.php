@@ -22,10 +22,10 @@ class Cyber_control extends CI_Controller{
 		//Navigation 2 Testimonial
 		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
 		//Navigation 2 Kategori Berita
-        
+        $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
         $data['base_url_link'] = base_url();
         
-		$data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
+		
 		$this->load->view('main',$data);		
 	}
 }
