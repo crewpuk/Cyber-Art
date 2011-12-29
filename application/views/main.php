@@ -14,7 +14,7 @@ echo $css;
 <div id="layout">
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
-    <a href="#">Berandaasd</a>
+    <a href="#">Beranda</a>
     <a href="#">Profil</a>
     <a href="#">E-Application</a>
     <a href="#">Program Studi</a>
