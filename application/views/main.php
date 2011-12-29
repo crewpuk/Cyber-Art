@@ -7,6 +7,9 @@
 <?php
 echo $css;
 ?>
+<script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery_tools.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery_assets.js'?>" type="text/javascript"></script>
 </head>
 
 <body>
