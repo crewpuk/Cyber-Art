@@ -14,11 +14,11 @@ echo $css;
 <div id="layout">
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
-    <a href="#">Berandagvhg</a>
-    <a href="#">Profilhvtvy</a>
+    <a href="#">Beranda</a>
+    <a href="#">Profil</a>
     <a href="#">E-Application</a>
     <a href="#">Program Studi</a>
-    <a href="#">Pendaftaran Onlinenknknkl</a>
+    <a href="#">Pendaftaran Online</a>
     </div>
     <!------------------------- Banner  -------------------------->
     <div id="banner" title="Cyberart"></div>
