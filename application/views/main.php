@@ -7,6 +7,9 @@
 <?php
 echo $css;
 ?>
+<script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery_tools.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery_assets.js'?>" type="text/javascript"></script>
 </head>
 
 <body>
@@ -105,11 +108,30 @@ echo $css;
                 </div>            
                 <!------------------------- Inner Navigation 2.3  -------------------------->    
                 <div id="innerNav">
-                	<div id="innerHead">
+                	<!--<div id="innerHead">
                     	<div id="checklist"></div>
                         <div id="textHead">Terpopuler</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner">Inner</div>-->
+                    
+                    <!-- Tab -->
+                    <div class="hTab">
+                        <a class="tab activeTab" id="Tab1">Terpopuler</a>
+                        <a class="tab" id="Tab2">Terkini</a>
+                        <a class="tab" id="Tab3">Komentar</a>
+                    </div>
+                    
+                    <!-- Content Tab -->
+                    <div class="contentTab" id="Tab1_content">
+                        Populer
+                    </div>
+                    <div class="contentTab hide" id="Tab2_content">
+                        Terkini
+                    </div>
+                    <div class="contentTab hide" id="Tab3_content">
+                        Komentar
+                    </div>
+                    
                 </div>       
                 <!------------------------- Inner Navigation 2.4 -------------------------->     
                 <div id="innerNav">

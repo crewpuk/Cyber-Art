@@ -54,3 +54,27 @@
 	color:white;
 	cursor:pointer;
 }
+.rdMore:hover{
+	color:#FC3;
+}
+
+/******************* Tab ********************/
+.tab { 
+  border-bottom: 1px solid #DDD;
+  padding-bottom:5px;
+}
+.tab a {
+  border:1px solid #DDD;
+  color:#666666;
+  padding: 5px 15px;
+  text-decoration:none;
+  background-color: #eee;
+}
+.tab a.activeTab { 
+  background-color: #fff; 
+  border-bottom: 0; 
+  padding: 6px 15px;
+}
+.contentTab { border: 1px solid #ddd; border-top: 0;}
+.hide { display: none;}
+}
