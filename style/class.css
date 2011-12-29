@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+/********************** Class Navigasi 1 Artikel **************************/
 .artText{
 	text-align:justify;	
 }
@@ -8,10 +9,37 @@
 	font-weight:bold;
 	font-size:16px;
 }
+/********************** Class Listing (li) **************************/
 .list li{
 	list-style:url(../images/folder.png);
 	margin-left:-12px;
+	margin-top:-10px;
 }
+/********************** Class Navigasi 2 Testimonial **************************/
+.testiGambar img{
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	-ms-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius:4px;
+	
+	-moz-box-shadow:0 0 3px #06F;
+	-webkit-box-shadow:0 0 3px #06F;
+	-o-box-shadow:0 0 3px #06F;
+	-ms-box-shadow:0 0 3px #06F;
+	-khtml-box-shadow:0 0 3px #06F;
+	box-shadow:0 0 3px #06F;
+	
+	margin-bottom:10px;
+	border:solid 1px 
+}
+.testi{
+	float:left;
+	margin-left:60px;
+	margin-top:-62px;	
+}
+/********************** Class Selengkapnya **************************/
 .rdMore{
 	background:-moz-linear-gradient(top, #2b88c9, #1b9cf6);
 	background:-webkit-linear-gradient(top, #2b88c9, #1b9cf6);
@@ -49,3 +77,4 @@
 }
 .contentTab { border: 1px solid #ddd; border-top: 0;}
 .hide { display: none;}
+}

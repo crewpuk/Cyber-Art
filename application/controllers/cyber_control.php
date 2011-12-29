@@ -9,12 +9,20 @@ class Cyber_control extends CI_Controller{
 	}
 	
 	function index(){
+		//Memanggil File CSS
 		$data['css'] = link_tag('style/style.css');
 		$data['css'] .= link_tag('style/layout.css');
 		$data['css'] .= link_tag('style/class.css');
-		$data['art'] = $this->cyber_model->get_all_data('m_posting',0,3);
-		$data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');        
-		$data['art'] = $this->cyber_model->get_all_data('m_posting');
+        
+		//Navigation 1 Artikel
+		$data['art'] = $this->cyber_model->get_order('id','DESC','m_posting',0,3);
+		//Navigation 1 Berita Sebelumnya
+		$data['berita'] = $this->cyber_model->get_order('id','ASC','m_posting',0,5);
+		//Navigation 2 Testimonial
+		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
+		//Navigation 2 Kategori Berita
+        
+		$data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
 		$this->load->view('main',$data);		
 	}
 }
