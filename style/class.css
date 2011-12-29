@@ -60,22 +60,38 @@
 
 /******************* Tab ********************/
 .hTab { 
-  border-bottom: 1px solid #DDD;
-  padding-bottom: 5px;
-  margin: 2px auto auto 5px;
+  border-bottom: 1px solid #88b8ff;
+  padding-bottom: 2px;
+  font-weight: bold;
 }
 .hTab a {
-  border: 1px solid #DDD;
-  color: #666666;
+  border-bottom: 0; 
+  color: #fff;
   padding: 5px 5px;
   text-decoration: none;
-  background-color: #eee;
+  
+  -moz-border-radius:5px 5px 0 0;
+  -webkit-border-radius:5px 5px 0 0;
+  -o-border-radius:5px 5px 0 0;
+  -ms-border-radius:5px 5px 0 0;
+  -khtml-border-radius:5px 5px 0 0;
+  border-radius:5px 5px 0 0;
+	
+  background:-moz-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-webkit-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-o-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-ms-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-khtml-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:linear-gradient(top, #1b9cf6, #2b88c9);
+ 
   cursor: pointer;
 }
 .hTab a.activeTab { 
-  background-color: #fff; 
+  color: #666;
+  border: 1px solid #88b8ff;
+  border-bottom: 0;
+  background: #fff; 
   border-bottom: 0; 
-  padding: 6px 15px;
+  padding: 5px 15px;
 }
-.contentTab { border: 1px solid #ddd; border-top: 0;}
 .hide { display: none;}

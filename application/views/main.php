@@ -116,7 +116,7 @@ echo $css;
                     
                     <!-- Tab -->
                     <div class="hTab">
-                        <a class="tab activeTab" id="Tab1">Terpopuler</a>
+                        <a class="tab activeTab" id="Tab1" style="margin-left: 5px;">Terpopuler</a>
                         <a class="tab" id="Tab2">Terkini</a>
                         <a class="tab" id="Tab3">Komentar</a>
                     </div>
