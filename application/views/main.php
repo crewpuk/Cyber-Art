@@ -15,6 +15,7 @@ echo $css;
 <body>
 <!------------------------- Layout  -------------------------->
 <div id="layout">
+	<div><img src="../images/logo/cyberart_1.png" width="300" height="150"/></div>
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
     <a href="#">Beranda</a>
