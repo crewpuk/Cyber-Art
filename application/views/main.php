@@ -107,13 +107,7 @@ echo $css;
                     <?php } ?>
                 </div>            
                 <!------------------------- Inner Navigation 2.3  -------------------------->    
-                <div id="innerNav">
-                	<!--<div id="innerHead">
-                    	<div id="checklist"></div>
-                        <div id="textHead">Terpopuler</div>
-                    </div>
-                    <div id="inner">Inner</div>-->
-                    
+                <div id="innerNav">                    
                     <!-- Tab -->
                     <div class="hTab">
                         <a class="tab activeTab" id="Tab1" style="margin-left: 5px;">Terpopuler</a>
