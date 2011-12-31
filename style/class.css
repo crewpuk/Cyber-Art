@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+
+/********************** Class Navigasi 1 Artikel **************************/
+.artText{
+	text-align:justify;	
+}
+.artTitle{
+	font-weight:bold;
+	font-size:16px;
+}
+/********************** Class Listing (li) **************************/
+.list li{
+	list-style:url(../images/folder.png);
+	margin-left:-12px;
+	margin-top:-10px;
+}
+/********************** Class Navigasi 2 Testimonial **************************/
+.testiGambar img{
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	-ms-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius:4px;
+	
+	-moz-box-shadow:0 0 3px #06F;
+	-webkit-box-shadow:0 0 3px #06F;
+	-o-box-shadow:0 0 3px #06F;
+	-ms-box-shadow:0 0 3px #06F;
+	-khtml-box-shadow:0 0 3px #06F;
+	box-shadow:0 0 3px #06F;
+	
+	margin-bottom:10px;
+	border:solid 1px 
+}
+.testi{
+	float:left;
+	margin-left:60px;
+	margin-top:-62px;	
+}
+/********************** Class Selengkapnya **************************/
+.rdMore{
+	background:-moz-linear-gradient(top, #2b88c9, #1b9cf6);
+	background:-webkit-linear-gradient(top, #2b88c9, #1b9cf6);
+	background:-o-linear-gradient(top, #2b88c9, #1b9cf6);
+	background:-ms-linear-gradient(top, #2b88c9, #1b9cf6);
+	background:-khtml-linear-gradient(top, #2b88c9, #1b9cf6);
+	background:linear-gradient(top, #2b88c9, #1b9cf6);
+	
+	padding:10px;
+	width:85px;
+	border:solid 1px #0CF;
+	color:white;
+	cursor:pointer;
+}
+.rdMore:hover{
+	color:#FC3;
+}
+
+/******************* Tab ********************/
+.hTab { 
+  border-bottom: 1px solid #88b8ff;
+  padding-bottom: 2px;
+  font-weight: bold;
+}
+.hTab a {
+  border-bottom: 0; 
+  color: #fff;
+  padding: 5px 5px;
+  text-decoration: none;
+  
+  -moz-border-radius:5px 5px 0 0;
+  -webkit-border-radius:5px 5px 0 0;
+  -o-border-radius:5px 5px 0 0;
+  -ms-border-radius:5px 5px 0 0;
+  -khtml-border-radius:5px 5px 0 0;
+  border-radius:5px 5px 0 0;
+	
+  background:-moz-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-webkit-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-o-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-ms-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:-khtml-linear-gradient(top, #1b9cf6, #2b88c9);
+  background:linear-gradient(top, #1b9cf6, #2b88c9);
+ 
+  cursor: pointer;
+}
+.hTab a.activeTab { 
+  color: #666;
+  border: 1px solid #88b8ff;
+  border-bottom: 0;
+  background: #fff; 
+  border-bottom: 0; 
+  padding: 5px 15px;
+}
+.hide { display: none;}
