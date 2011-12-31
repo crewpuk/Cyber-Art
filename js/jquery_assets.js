@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('img[title]').tooltip();
     $(".tab").each(function(){
         $(this).click(function(){
             tabelId = $(this).attr('id');

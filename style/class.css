@@ -98,3 +98,15 @@
 .logo{
 	background-image: url(../images/cyberart_1.png);
 	}
+
+/************************** Tooltip *************************/
+.tooltip {
+	display:none;
+	background:transparent url(/tools/img/tooltip/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}
+}

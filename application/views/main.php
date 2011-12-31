@@ -181,5 +181,6 @@ echo $css;
 	Copyright &copy; 2011 Cyberart and Crewpuk-org. All Rights Reserved.
     </div>
 </div>
+<div class="tooltip"></div>
 </body>
 </html>
