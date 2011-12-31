@@ -116,6 +116,8 @@
 	background:-khtml-linear-gradient(top, #1b9cf6, #2b88c9);
 	background:linear-gradient(top, #1b9cf6, #2b88c9);
 	
+	background-image:url(../images/bg-innerHeader.png); 
+	
 	height:25px;
 }
 

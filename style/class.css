@@ -47,8 +47,8 @@
 	background:-ms-linear-gradient(top, #2b88c9, #1b9cf6);
 	background:-khtml-linear-gradient(top, #2b88c9, #1b9cf6);
 	background:linear-gradient(top, #2b88c9, #1b9cf6);
-	
-	padding:10px;
+	background-image:url(../images/bg-button.png);
+	padding:8px;
 	width:85px;
 	border:solid 1px #0CF;
 	color:white;
