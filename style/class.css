@@ -99,14 +99,32 @@
 	background-image: url(../images/cyberart_1.png);
 	}
 
-/************************** Tooltip *************************/
+/************************** Tooltip ************************
 .tooltip {
-	display:none;
-	background:transparent url(/tools/img/tooltip/black_arrow.png);
-	font-size:12px;
-	height:70px;
-	width:160px;
-	padding:25px;
-	color:#fff;	
-}
+	background-color: #000;
+	border: 1px solid #fff;
+	padding: 10px 15px;
+	max-width: 200px;
+	display: none;
+	color: #fff;
+	text-align: left;
+	font-size: 12px;s
+	-moz-box-shadow:0 0 10px #000;
+	-webkit-box-shadow:0 0 10px #000;
+}*/
+.tooltip {
+    padding: 5px;
+    font-size: 12px;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    padding: 5px 8px 4px 8px;
+    background: #000;
+    color: white;
+    max-width: 200px;
+    text-align: justify;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -khtml-border-radius:3px;
+    -o-border-radius:3px;
+    border-radius:3px;
 }
