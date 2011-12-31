@@ -30,29 +30,7 @@ echo $css;
     	<div id="container">
         <!------------------------- Navigation 1  -------------------------->
         	<div id="nav1">
-            <?php foreach($art as $a) {
-				  $subText = substr($a->isi,0,100);
-				  $someText = explode(' ',substr($a->isi,100,200));
-				  $dateDB = $a->tanggal;
-				  $year = substr($dateDB,0,4);
-				  $month = substr($dateDB,4,3);
-				  $day = substr($dateDB,8);
-				  $date = $day.$month.'-'.$year;
-				  $img = array(
-				  "src" => "images/art/".$a->image."",
-				  "width" => "300",
-				  "height" => "200",
-				  "title" => "".$a->image."",
-				  "alt" => "".$a->image.""
-				  );
-			 ?>
-            	<div class="artHead">Posted On : <?php echo $date ?></div>
-                <div class="artTitle"><?php echo $a->title.br(2) ?></div>
-                <div class="artImage"><?php echo img($img).br(2) ?></div>
-                <div class="artText"><?php echo nl2br($subText.$someText[0]); ?>...</div><br />
-                <div class="rdMore">Selengkapnya</div>
-                <hr />
-            <?php } echo br(2); ?>
+            <?php echo $content.br(2); ?>
             <!------------------------- Inner Navigation 1.1  -------------------------->
             	<div id="innerNav">
                 	<div id="innerHead">
