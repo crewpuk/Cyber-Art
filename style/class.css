@@ -95,3 +95,6 @@
   padding: 5px 15px;
 }
 .hide { display: none;}
+.logo{
+	background-image: url(../images/cyberart_1.png);
+	}
