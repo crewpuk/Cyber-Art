@@ -113,6 +113,7 @@
 	-webkit-box-shadow:0 0 10px #000;
 }*/
 .tooltip {
+    display: none;
     padding: 5px;
     font-size: 12px;
     opacity: 0.9;

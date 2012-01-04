@@ -13,7 +13,7 @@ echo $css;
 </head>
 
 <body>
-<div id="layout2"><img src="images/logo/cyberart_1.png" width="300" height="150"/></div>
+<div id="layout2"><img src="<?php echo $base_url_link;?>images/logo/cyberart_1.png" width="300" height="150"/></div>
 <!------------------------- Layout  -------------------------->
 <div id="layout">
 	
