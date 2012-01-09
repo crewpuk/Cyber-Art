@@ -7,6 +7,7 @@ class Cyber_control extends CI_Controller{
 		$this->load->helper('html');
 		$this->load->helper('url');
 		$this->load->helper('date');
+        $this->load->library("counter");
 	}
 	
 	function index(){
@@ -27,6 +28,11 @@ class Cyber_control extends CI_Controller{
         $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
         $data['base_url_link'] = base_url();
         
+        $data['gallery']='<div>';
+        
+        $data['counter']=$this->counter->get_counter();
+        
+                
         //////// Content
         $data['content'] = '';
         foreach($art as $a) {
@@ -57,7 +63,7 @@ class Cyber_control extends CI_Controller{
 		$this->load->view('main',$data);		
 	}
     function artikel($id){
-        if(preg_match('#[1-9]+#',$id)){
+        if(preg_match('#[0-9]+#',$id)&&$id!=0){
 		//Memanggil File CSS
 		$data['css'] = link_tag('style/style.css');
 		$data['css'] .= link_tag('style/layout.css');
