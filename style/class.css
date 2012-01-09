@@ -99,19 +99,7 @@
 	background-image: url(../images/cyberart_1.png);
 	}
 
-/************************** Tooltip ************************
-.tooltip {
-	background-color: #000;
-	border: 1px solid #fff;
-	padding: 10px 15px;
-	max-width: 200px;
-	display: none;
-	color: #fff;
-	text-align: left;
-	font-size: 12px;s
-	-moz-box-shadow:0 0 10px #000;
-	-webkit-box-shadow:0 0 10px #000;
-}*/
+/************************** Tooltip *************************/
 .tooltip {
     display: none;
     padding: 5px;
@@ -128,4 +116,25 @@
     -khtml-border-radius:3px;
     -o-border-radius:3px;
     border-radius:3px;
+}
+
+/*********************** Counter **********************/
+.counter{
+    padding: 10px 5px;
+}
+.counter .today,.counter .all,.counter .online{
+    padding-left: 20px;
+}
+.counter .number{
+    margin-bottom:  15px;
+}
+.counter .today{
+    background: url(../images/counter/today.png) left center no-repeat;
+}
+.counter .all{
+    background: url(../images/counter/all.png) left center no-repeat;
+    margin-bottom:  15px;
+}
+.counter .online{
+    background: url(../images/counter/online.png) left center no-repeat;
 }

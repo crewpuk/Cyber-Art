@@ -159,7 +159,14 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Statistik</div>
                     </div>
-                    <div id="inner"><?php print_r($counter); ?></div>
+                    <div class="counter">
+                        <div class="number" align="center"><?php echo($counter['html']); ?></div>
+                        <div class="today">Pengunjung hari ini: <?php echo $counter['number']['today'];?></div>
+                        <div class="all">Total pengunjung: <?php echo $counter['number']['all'];?></div>
+                        <div class="today">Hits hari ini: <?php echo $counter['number']['hits']['today'];?></div>
+                        <div class="all">Total hits: <?php echo $counter['number']['hits']['all'];?></div>
+                        <div class="online">Pengunjung online: <?php echo $counter['number']['online'];?></div>
+                    </div>
                 </div>
                 <!------------------------- Inner Navigation 3.2  -------------------------->
                 <div id="innerNav">
