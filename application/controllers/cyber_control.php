@@ -1,6 +1,6 @@
 <?php
 class Cyber_control extends CI_Controller{
-	
+    
 	function __Construct(){
 		parent::__Construct();	
 		$this->load->model('cyber_model');
@@ -15,6 +15,7 @@ class Cyber_control extends CI_Controller{
 		$data['css'] = link_tag('style/style.css');
 		$data['css'] .= link_tag('style/layout.css');
 		$data['css'] .= link_tag('style/class.css');
+		$data['css'] .= link_tag('style/lavalamp.css');
 		$data['css'] .= link_tag('images/favico.png','shortcut icon','');
         
 		//Navigation 1 Artikel
@@ -30,8 +31,20 @@ class Cyber_control extends CI_Controller{
         
         $data['gallery']='<div>';
         
-        $data['counter']=$this->counter->get_counter();
-        
+        // Counter
+        $counter['number']=$this->counter->get_counter();
+        $counter['html']='';
+        $img_url = base_url().'/images';
+        $max = 8;
+        $length = strlen($counter['number']['all']);
+        for($i=0;$i<($max-$length);$i++){
+        	$counter['html'].='<img src="'.$img_url.'/counter/0.png" />';
+        }
+        for($i=0;$i<$length;$i++){
+        	$counter['html'].='<img src="'.$img_url.'/counter/'.substr($counter['number']['all'],$i,1).'.png" />';
+        }
+        $data['counter']=$counter;
+        // End of Counter
                 
         //////// Content
         $data['content'] = '';
@@ -64,6 +77,10 @@ class Cyber_control extends CI_Controller{
 	}
     function artikel($id){
         if(preg_match('#[0-9]+#',$id)&&$id!=0){
+        // View
+        $this->cyber_model->update_views($id);
+        // End of View   
+        
 		//Memanggil File CSS
 		$data['css'] = link_tag('style/style.css');
 		$data['css'] .= link_tag('style/layout.css');
@@ -80,6 +97,20 @@ class Cyber_control extends CI_Controller{
 		//Navigation 2 Kategori Berita
         $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
         $data['base_url_link'] = base_url();
+        
+        // Counter
+        $counter['number']=$this->counter->get_counter();
+        $counter['html']='';
+        $max = 8;
+        $length = strlen($counter['number']['all']);
+        for($i=0;$i<($max-$length);$i++){
+        	$counter['html'].='<img src="http://crewpuk-org.co.cc/images/counter/0.png" />';
+        }
+        for($i=0;$i<$length;$i++){
+        	$counter['html'].='<img src="http://crewpuk-org.co.cc/images/counter/'.substr($counter['number']['all'],$i,1).'.png" />';
+        }
+        $data['counter']=$counter;
+        // End of Counter
         
         //////// Content
         $data['content'] = '';

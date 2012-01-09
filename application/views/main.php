@@ -10,6 +10,20 @@ echo $css;
 <script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery_tools.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery_assets.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery-1.1.3.1.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.easing.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.lavalamp.min.js'?>" type="text/javascript"></script>
+ <script type="text/javascript">
+        $(function() {
+            $("#1, #2, #3").lavaLamp({
+                fx: "backout", 
+                speed: 700,
+                click: function(event, menuItem) {
+                    return false;
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -19,11 +33,12 @@ echo $css;
 	
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
-    <a href="#">Beranda</a>
-    <a href="#">Profil</a>
-    <a href="#">E-Application</a>
-    <a href="#">Program Studi</a>
-    <a href="#">Pendaftaran Online</a>
+		<ul class="lavaLampBottomStyle" id="3">
+			<li><a href="#">Beranda</a></li>
+			<li><a href="#">Profil</a></li>
+			<li><a href="#">E-Application</a></li>
+			<li><a href="#">Program Studi</a></li>
+			<li><a href="#">Pendaftaran Online</a></li>	   
     </div>
     <!------------------------- Banner  -------------------------->
     <div id="banner" title="Cyberart"></div>
@@ -131,7 +146,12 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Online Support</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner" align="center">
+						<a href="ymsgr:sendIM?feldy.yusuf">
+							<img border="0" 
+							src="http://opi.yahoo.com/online?u=feldy.yusuf&m=g&t=2"/>
+							</a>
+					</div>
                 </div>
                 <!------------------------- Inner Navigation 3.1  -------------------------->
                 <div id="innerNav">
@@ -139,7 +159,14 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Statistik</div>
                     </div>
-                    <div id="inner"><?php print_r($counter); ?></div>
+                    <div class="counter">
+                        <div class="number" align="center"><?php echo($counter['html']); ?></div>
+                        <div class="today">Pengunjung hari ini: <?php echo $counter['number']['today'];?></div>
+                        <div class="all">Total pengunjung: <?php echo $counter['number']['all'];?></div>
+                        <div class="today">Hits hari ini: <?php echo $counter['number']['hits']['today'];?></div>
+                        <div class="all">Total hits: <?php echo $counter['number']['hits']['all'];?></div>
+                        <div class="online">Pengunjung online: <?php echo $counter['number']['online'];?></div>
+                    </div>
                 </div>
                 <!------------------------- Inner Navigation 3.2  -------------------------->
                 <div id="innerNav">
@@ -163,7 +190,11 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Supported By</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner">
+						<img src="<?php echo $base_url_link;?>images/support/Call.jpg"><br /><br>
+						<img src="<?php echo $base_url_link;?>images/support/SMS.jpg"><br /><br>
+						<img src="<?php echo $base_url_link;?>images/support/Alamat.jpg">
+                    </div>
                 </div>
             </div>
         </div>
