@@ -8,22 +8,12 @@
 echo $css;
 ?>
 <script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jquery_tools.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jquery_assets.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jquery-1.1.3.1.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.tools.min.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.easing.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.easing.compatibility.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.easing.1.3.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.lavalamp.min.js'?>" type="text/javascript"></script>
- <script type="text/javascript">
-        $(function() {
-            $("#1, #2, #3").lavaLamp({
-                fx: "backout", 
-                speed: 700,
-                click: function(event, menuItem) {
-                    return false;
-                }
-            });
-        });
-    </script>
+<script src="<?php echo $base_url_link.'js/jquery.assets.js'?>" type="text/javascript"></script>
 </head>
 
 <body>
