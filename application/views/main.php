@@ -131,7 +131,12 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Online Support</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner" align="center">
+						<a href="ymsgr:sendIM?feldy.yusuf">
+							<img border="0" 
+							src="http://opi.yahoo.com/online?u=feldy.yusuf&m=g&t=2"/>
+							</a>
+					</div>
                 </div>
                 <!------------------------- Inner Navigation 3.1  -------------------------->
                 <div id="innerNav">
@@ -163,7 +168,11 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Supported By</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner">
+						<img src="<?php echo $base_url_link;?>images/support/Call.jpg"><br /><br>
+						<img src="<?php echo $base_url_link;?>images/support/SMS.jpg"><br /><br>
+						<img src="<?php echo $base_url_link;?>images/support/Alamat.jpg">
+                    </div>
                 </div>
             </div>
         </div>
