@@ -48,7 +48,7 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Galeri Foto</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner"><?php $gallery;?></div>
                 </div>
                 
             </div>
@@ -139,7 +139,7 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Statistik</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner"><?php print_r($counter); ?></div>
                 </div>
                 <!------------------------- Inner Navigation 3.2  -------------------------->
                 <div id="innerNav">
