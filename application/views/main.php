@@ -10,6 +10,20 @@ echo $css;
 <script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery_tools.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery_assets.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery-1.1.3.1.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.easing.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.lavalamp.min.js'?>" type="text/javascript"></script>
+ <script type="text/javascript">
+        $(function() {
+            $("#1, #2, #3").lavaLamp({
+                fx: "backout", 
+                speed: 700,
+                click: function(event, menuItem) {
+                    return false;
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -19,11 +33,12 @@ echo $css;
 	
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
-    <a href="#">Beranda</a>
-    <a href="#">Profil</a>
-    <a href="#">E-Application</a>
-    <a href="#">Program Studi</a>
-    <a href="#">Pendaftaran Online</a>
+		<ul class="lavaLampBottomStyle" id="3">
+			<li><a href="#">Beranda</a></li>
+			<li><a href="#">Profil</a></li>
+			<li><a href="#">E-Application</a></li>
+			<li><a href="#">Program Studi</a></li>
+			<li><a href="#">Pendaftaran Online</a></li>	   
     </div>
     <!------------------------- Banner  -------------------------->
     <div id="banner" title="Cyberart"></div>
