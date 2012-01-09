@@ -15,6 +15,7 @@ class Cyber_control extends CI_Controller{
 		$data['css'] = link_tag('style/style.css');
 		$data['css'] .= link_tag('style/layout.css');
 		$data['css'] .= link_tag('style/class.css');
+		$data['css'] .= link_tag('style/lavalamp.css');
 		$data['css'] .= link_tag('images/favico.png','shortcut icon','');
         
 		//Navigation 1 Artikel
