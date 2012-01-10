@@ -16,6 +16,7 @@ class Home extends CI_Controller{
 		$data['css'][]=link_tag('style/layout.css');
 		$data['css'][]=link_tag('style/class.css');
 		$data['css'][]=link_tag('style/lavalamp.css');
+		$data['css'][]=link_tag('style/slider.css');
 		$data['css'][]=link_tag('images/favico.png','shortcut icon','');
         
 		//Navigation 1 Artikel

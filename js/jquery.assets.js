@@ -1,11 +1,13 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
+	
     $('img[title]').tooltip({
 	position: "center right",
 	offset: [-2, 10],
 	effect: "fade",
 	opacity: 0.7
     });
+    
     $(".tab").each(function(){
         $(this).click(function(){
             tabelId = $(this).attr('id');
@@ -16,6 +18,7 @@ $(document).ready(function() {
             return false;
         });
     });
+    
     $(function() {
         $("#1, #2, #3").lavaLamp({
             fx: "backout", 
@@ -25,4 +28,11 @@ $(document).ready(function() {
             }
         });
     });
+    
+    $('#slider1').s3Slider({
+		timeOut: 4000 
+    });
+    
+    
+    
 });

@@ -14,6 +14,7 @@ foreach($css as $key)echo $key."\n";
 <script src="<?php echo $base_url_link.'js/jquery.easing.1.3.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.lavalamp.min.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.assets.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/s3Slider.js'?>" type="text/javascript"></script>
 </head>
 
 <body>
@@ -31,7 +32,28 @@ foreach($css as $key)echo $key."\n";
 			<li><a href="#">Pendaftaran Online</a></li>	   
     </div>
     <!------------------------- Banner  -------------------------->
-    <div id="banner" title="Cyberart"></div>
+    <div id="banner">
+		<div id="slider1">
+        <ul id="slider1Content">
+            <li class="slider1Image">
+                <a href=""><img src="<?php echo $base_url_link;?>images/banner.jpg" alt="1" /></a>
+                <span class="left"><strong>Title text 1</strong><br />Content text...</span></li>
+            <li class="slider1Image">
+                <a href=""><img src="<?php echo $base_url_link;?>images/example_images/wide/2.jpg" alt="2" /></a>
+                <span class="left"><strong>Title text 2</strong><br />Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...</span></li>
+            <li class="slider1Image">
+                <img src="<?php echo $base_url_link;?>images/example_images/wide/3.jpg" alt="3" />
+                <span class="left"><strong>Title text 2</strong><br />Content text...</span></li>
+            <li class="slider1Image">
+                <img src="<?php echo $base_url_link;?>images/example_images/wide/4.jpg" alt="4" />
+                <span class="left"><strong>Title text 2</strong><br />Content text...</span></li>
+            <li class="slider1Image">
+                <img src="<?php echo $base_url_link;?>images/example_images/wide/5.jpg" alt="5" />
+                <span class="left"><strong>Title text 2</strong><br />Content text...</span></li>
+            <div class="clear slider1Image"></div>
+        </ul>
+    </div>
+    </div>
     <!------------------------- Container Content  -------------------------->
     	<div id="container">
         <!------------------------- Navigation 1  -------------------------->
