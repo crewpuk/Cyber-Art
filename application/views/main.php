@@ -23,8 +23,8 @@ foreach($css as $key)echo $key."\n";
 <div id="layout">
 	
 <!------------------------- Navigation Header Menu  -------------------------->
-	<div id="navHead">
-		<ul class="lavaLampBottomStyle" id="3">
+	<div id="navHead" >
+		<ul class="lavaLampBottomStyle" id="3" >
 			<li><a href="#">Beranda</a></li>
 			<li><a href="#">Profil</a></li>
 			<li><a href="#">E-Application</a></li>
