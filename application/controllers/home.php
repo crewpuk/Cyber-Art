@@ -50,7 +50,9 @@ class Home extends CI_Controller{
         
         // Poling
 	    $v=$this->votting->get_option();
-        $data['poling']=form_open('home/form/poling');
+        $data['poling']='';
+        $data['poling'].="<h4>Mau Kemana Setelah SMU atau SMK? </h4>";
+        $data['poling'].=form_open('home/form/poling');
         $data['poling'].=form_hidden('poling_state','1');
         foreach($v as $a){
             $po = array(
@@ -61,7 +63,8 @@ class Home extends CI_Controller{
             $data['poling'].=form_radio($po).' '.$a['nama']."<br />\n";
         }
         
-        $data['poling'].=form_submit(array('value'=>'vote')).form_close();
+        $data['poling'].="<br />".form_submit(array('value'=>'vote')).form_close();
+        $data['poling'].=anchor(base_url().'home/polling/','Hasil Polling');
         // End of Poling
         
         //////// Content
@@ -105,6 +108,7 @@ class Home extends CI_Controller{
 		$data['css'][]=link_tag('style/style.css');
 		$data['css'][]=link_tag('style/layout.css');
 		$data['css'][]=link_tag('style/class.css');
+		$data['css'][]=link_tag('style/slider.css');
 		$data['css'][]=link_tag('style/lavalamp.css');
 		$data['css'][]=link_tag('images/favico.png','shortcut icon','');
         
@@ -190,6 +194,7 @@ class Home extends CI_Controller{
 		$data['css'][]=link_tag('style/style.css');
 		$data['css'][]=link_tag('style/layout.css');
 		$data['css'][]=link_tag('style/class.css');
+		$data['css'][]=link_tag('style/slider.css');
 		$data['css'][]=link_tag('style/lavalamp.css');
 		$data['css'][]=link_tag('images/favico.png','shortcut icon','');
 		//Navigation 1 Berita Sebelumnya
@@ -276,6 +281,7 @@ class Home extends CI_Controller{
 		$data['css'][]=link_tag('style/style.css');
 		$data['css'][]=link_tag('style/layout.css');
 		$data['css'][]=link_tag('style/class.css');
+		$data['css'][]=link_tag('style/slider.css');
 		$data['css'][]=link_tag('style/lavalamp.css');
 		$data['css'][]=link_tag('images/favico.png','shortcut icon','');
         
@@ -327,11 +333,21 @@ class Home extends CI_Controller{
         $i=0;
         $cc = array('y','r','g','b');
         foreach($v as $a){
-            $a['persen'] = (400*$a['persen'])/100;
-            $data['content'] .= '<div class="vot_res vot'.$i.'" percent="'.($a['persen']).'%" style="width: '.($a['persen']).'px;"></div>';
+            $a['px'] = (400*$a['persen'])/100;
+            $data['content'] .= '<div class="vot_res vot'.$i.'" title="'.($a['persen']).'%" style="width: '.($a['px']).'px;"></div>';
             $i++;
         }
         $data['content'] .= '</div></div>';
+        
+        $data['content'] .= '<div class="vot_legend">';
+        $i=0;
+        foreach($v as $a){
+            $a['px'] = (400*$a['persen'])/100;
+            $data['content'] .= '<div class="vot_col col'.$i.'" style="float: left;width: 15px;height: 15px;"></div><div class="vot_text" style="float: left;">'.$a['nama'].'</div><div style="clear: both;"></div>';
+            $i++;
+        }
+        $data['content'] .= '</div>';
+        
         //$data['content'] = $v;
         //////// End of Content
         	

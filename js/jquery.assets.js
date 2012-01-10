@@ -7,6 +7,12 @@ $(document).ready(function() {
 	effect: "fade",
 	opacity: 0.7
     });
+    $('div.vot_res[title]').tooltip({
+	position: "bottom center",
+	offset: [13,0],
+	effect: "slide",
+	opacity: 0.8
+    });
     
     $(".tab").each(function(){
         $(this).click(function(){

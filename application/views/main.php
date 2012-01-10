@@ -36,10 +36,10 @@ foreach($css as $key)echo $key."\n";
 		<div id="slider1">
         <ul id="slider1Content">
             <li class="slider1Image">
-                <a href=""><img src="<?php echo $base_url_link;?>images/banner.jpg" alt="1" /></a>
+                <img src="<?php echo $base_url_link;?>images/banner.jpg" alt="1" />
                 <span class="left"><strong>Title text 1</strong><br />Content text...</span></li>
             <li class="slider1Image">
-                <a href=""><img src="<?php echo $base_url_link;?>images/example_images/wide/2.jpg" alt="2" /></a>
+                <img src="<?php echo $base_url_link;?>images/example_images/wide/2.jpg" alt="2" />
                 <span class="left"><strong>Title text 2</strong><br />Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...</span></li>
             <li class="slider1Image">
                 <img src="<?php echo $base_url_link;?>images/example_images/wide/3.jpg" alt="3" />
