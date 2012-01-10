@@ -16,7 +16,7 @@ class CI_Counter{
 	
     private function create_table(){
         @mysql_query("CREATE TABLE IF NOT EXISTS ".$this->counter_table." (`tgl` DATE NOT NULL ,`ip` LONGTEXT NOT NULL , `hits` BIGINT( 15 ) NOT NULL ,PRIMARY KEY ( `tgl` )) ENGINE = MYISAM ;");
-        @mysql_query("CREATE TABLE IF NOT EXISTS ".$this->history_table." (`id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,`ip` VARCHAR( 50 ) NOT NULL ,`date` DATE NOT NULL ,`time` TIME NOT NULL ,`time_u` BIGINT( 11 ) NOT NULL) ENGINE = MYISAM ;");
+        @mysql_query("CREATE TABLE IF NOT EXISTS ".$this->history_table." (`id` BIGINT( 20 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,`ip` VARCHAR( 50 ) NOT NULL ,`date` DATE NOT NULL ,`time` TIME NOT NULL ,`time_u` BIGINT( 11 ) NOT NULL) ENGINE = MYISAM ;");
     }
     
 	public function get_counter(){

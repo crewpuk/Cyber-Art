@@ -14,6 +14,8 @@
 	margin-top:50px;
 	width:920px;
 	margin:15px auto auto auto;
+    
+    -webkit-box-shadow: 0 0 15px 1px #c3c3c3;
 }
 #layout2{
 	-moz-border-radius:5px;

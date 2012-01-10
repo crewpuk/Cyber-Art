@@ -8,23 +8,9 @@ class Cyber_model extends CI_Model{
 	function insert($table,$set){
 		$this->db->insert($table,$set);	
 	}
-	/**
-	* @param :
-	* $table = Nama Tabel
-	* $limitStart = Query Limit Awal
-	* $limitEnd = Query Limit Akhir
-	*/
-	function get_all_data($table,$limitStart='',$limitEnd=''){
+	function get_all_data($table,$limitStart=null,$limitEnd=null){
 		return $this->db->get($table,$limitEnd,$limitStart)->result();
 	}
-	/**
-	* @param :
-	* $table = Nama Tabel
-	* $column = Kolom yang akan di urutkan
-	* $order = Bernilai ASC atau DESC
-	* $limitStart = Query Limit Awal
-	* $limitEnd = Query Limit Akhir
-	*/
 	function get_order($column,$order,$table,$limitStart='',$limitEnd=''){
 		$this->db->order_by($column,$order);
 		return $this->db->get($table,$limitEnd,$limitStart)->result();	

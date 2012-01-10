@@ -5,25 +5,15 @@
 <title>Cyber Art</title>
 <!------------------------- Link CSS  -------------------------->
 <?php
-echo $css;
+foreach($css as $key)echo $key."\n";
 ?>
 <script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jquery_tools.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jquery_assets.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jquery-1.1.3.1.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.tools.min.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.easing.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.easing.compatibility.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.easing.1.3.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.lavalamp.min.js'?>" type="text/javascript"></script>
- <script type="text/javascript">
-        $(function() {
-            $("#1, #2, #3").lavaLamp({
-                fx: "backout", 
-                speed: 700,
-                click: function(event, menuItem) {
-                    return false;
-                }
-            });
-        });
-    </script>
+<script src="<?php echo $base_url_link.'js/jquery.assets.js'?>" type="text/javascript"></script>
 </head>
 
 <body>
@@ -63,7 +53,21 @@ echo $css;
                     	<div id="checklist"></div>
                         <div id="textHead">Galeri Foto</div>
                     </div>
-                    <div id="inner"><?php $gallery;?></div>
+                    <div id="inner"><?php foreach($gallery as $g){ 
+                    $img = array(
+                    "src" => "images/".$g->file,
+                    "width" => 100,
+                    "height" => 100,
+                    "title" => "".$g->nama_album."",
+                    "alt" => "".$g->nama.""
+                    );
+                    
+                    //echo '<div class="artImage">'.img($img).br(2).'</div>';
+                   	echo "<div class='testiGambar'>".img($img).br(1).$g->deskripsi."</div>";
+					//echo "<div class='testi'>".img($img).br(2)."</div>";
+                    //("'" .$g->nama. "'");
+                    
+                    } ?></div>
                 </div>
                 
             </div>
@@ -204,7 +208,7 @@ echo $css;
     |<a href="#"> Beranda </a>|
     <a href="#"> Berita </a>|
     <a href="#"> Agenda </a>|
-    <a href="#"> Galeri </a>|
+    <?php echo anchor($base_url_link."home/gallery"," Galeri ");?>|
     <a href="#"> Download </a>|
     <a href="#"> Hubungi Kami </a>|
     <a href="#"> Webmail </a>|
