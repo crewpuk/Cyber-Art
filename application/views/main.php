@@ -24,7 +24,7 @@ foreach($css as $key)echo $key."\n";
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
 		<ul class="lavaLampBottomStyle" id="3">
-			<li><a href="#">Beranda</a></li>
+			<li><?php echo anchor($base_url_link,'Beranda')?></li>
 			<li><a href="#">Profil</a></li>
 			<li><a href="#">E-Application</a></li>
 			<li><a href="#">Program Studi</a></li>
@@ -36,7 +36,12 @@ foreach($css as $key)echo $key."\n";
     	<div id="container">
         <!------------------------- Navigation 1  -------------------------->
         	<div id="nav1">
-            <?php echo $content.br(2); ?>
+            <?php echo $content; ?>
+                
+                <?php
+                /************************** Status Halaman *******************************/
+                if(strtolower($status_halaman)=='beranda'||strtolower($status_halaman)=='posting'){
+                ?>
             <!------------------------- Inner Navigation 1.1  -------------------------->
             	<div id="innerNav">
                 	<div id="innerHead">
@@ -47,6 +52,11 @@ foreach($css as $key)echo $key."\n";
                     <div id="inner" class="list"><ul><li><?php echo anchor('#',$b->title) ?></li></ul></div>
                     <?php } ?>
                 </div>
+                <?php
+                }
+                /************************** Status Halaman *******************************/
+                if(strtolower($status_halaman)=='beranda'){
+                ?>
 			<!------------------------- Inner Navigation 1.2  -------------------------->
                 <div id="innerNav">
                 	<div id="innerHead">
@@ -69,7 +79,7 @@ foreach($css as $key)echo $key."\n";
                     
                     } ?></div>
                 </div>
-                
+                <?php }/************************* Status Halaman *******************************/?>
             </div>
             <!------------------------- Navigation 2  -------------------------->
             <div id="nav2">
@@ -178,7 +188,7 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Polling</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner"><?php echo $poling;?></div>
                 </div>
                 <!------------------------- Inner Navigation 3.3  -------------------------->
                 <div id="innerNav">
@@ -205,13 +215,13 @@ foreach($css as $key)echo $key."\n";
     <br class="clear" /><br class="clear" />
     <!------------------------- Footer  -------------------------->
 	<div id="footer">
-    |<a href="#"> Beranda </a>|
-    <a href="#"> Berita </a>|
-    <a href="#"> Agenda </a>|
-    <?php echo anchor($base_url_link."home/gallery"," Galeri ");?>|
-    <a href="#"> Download </a>|
-    <a href="#"> Hubungi Kami </a>|
-    <a href="#"> Webmail </a>|
+    | <?php echo anchor($base_url_link,'Beranda')?> |
+    <a href="#">Berita</a> |
+    <a href="#">Agenda</a> |
+    <?php echo anchor($base_url_link."home/gallery","Galeri");?> |
+    <a href="#">Download</a> |
+    <a href="#">Hubungi Kami</a> |
+    <a href="#">Webmail</a> |
     <br />
 	Copyright &copy; 2011 Cyberart and Crewpuk-org. All Rights Reserved.
     </div>

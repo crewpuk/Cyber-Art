@@ -138,3 +138,18 @@
 .counter .online{
     background: url(../images/counter/online.png) left center no-repeat;
 }
+/******************* Poling **************************/
+.vot_res{
+    float: left;
+    height: 20px;
+}
+.vot0{background-color: #5a5a5a;}
+.vot0:hover{background-color: #6d6d6d;}
+.vot1{background-color: #e41fe6;}
+.vot1:hover{background-color: #fd2eff;}
+.vot2{background-color: #1f8dea;}
+.vot2:hover{background-color: #33a2ff;}
+.vot3{background-color: #e6781f;}
+.vot3:hover{background-color: #ff8c2f;}
+.vot4{background-color: #1fead9;}
+.vot4:hover{background-color: #32ffee;}
