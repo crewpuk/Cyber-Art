@@ -1,7 +1,7 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
 	
-    $('img[title]').tooltip({
+    $('.fortip[title]').tooltip({
 	position: "center right",
 	offset: [-2, 10],
 	effect: "fade",
@@ -29,6 +29,7 @@ $(document).ready(function() {
         $("#1, #2, #3").lavaLamp({
             fx: "backout", 
             speed: 700,
+            curr: 2,
             /*click: function(event, menuItem) {
                 return false;
             }*/

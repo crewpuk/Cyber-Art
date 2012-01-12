@@ -24,8 +24,9 @@ foreach($css as $key)echo $key."\n";
 	
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
-		<ul class="lavaLampBottomStyle" id="3">
+		<ul class="lavaLampNoImage" id="3">
 			<li><?php echo anchor($base_url_link,'Beranda')?></li>
+			<li><?php echo anchor($base_url_link.'home/gallery/','Galeri')?></li>
 			<li><a href="#">Profil</a></li>
 			<li><a href="#">E-Application</a></li>
 			<li><a href="#">Program Studi</a></li>
@@ -118,7 +119,8 @@ foreach($css as $key)echo $key."\n";
 					"src" => "images/".$t->photo,
 					"width" => 50,
 					"height" => 50,
-					"title" => "".$t->nama."\n".$t->jabatan."",
+                    "class" => "fortip",
+					"title" => "".$t->nama."<br />".$t->jabatan."",
 					"alt" => "".$t->photo.""
 					);
 					echo "<div class='testiGambar'>".img($img)."</div>";

@@ -52,7 +52,7 @@ class Home extends CI_Controller{
 	    $v=$this->votting->get_option();
         $data['poling']='';
         $data['poling'].="<h4>Mau Kemana Setelah SMU atau SMK? </h4>";
-        $data['poling'].=form_open('home/form/poling');
+        $data['poling'].=form_open('form_proses/form/poling');
         $data['poling'].=form_hidden('poling_state','1');
         foreach($v as $a){
             $po = array(
@@ -143,7 +143,7 @@ class Home extends CI_Controller{
         
         // Poling
 	    $v=$this->votting->get_option();
-        $data['poling']=form_open('home/form/poling');
+        $data['poling']=form_open('form_proses/form/poling');
         $data['poling'].=form_hidden('poling_state','1');
         foreach($v as $a){
             $po = array(
@@ -225,7 +225,7 @@ class Home extends CI_Controller{
         
         // Poling
 	    $v=$this->votting->get_option();
-        $data['poling']=form_open('home/form/poling');
+        $data['poling']=form_open('form_proses/form/poling');
         $data['poling'].=form_hidden('poling_state','1');
         foreach($v as $a){
             $po = array(
@@ -259,14 +259,6 @@ class Home extends CI_Controller{
         //////// End of Content
         	
 		$this->load->view('main',$data);
-    }
-    
-    function form($type="poling"){
-        if(!empty($type)&&!empty($_POST)){
-            if(strtolower($type)=="poling"&&$_POST['poling_state']=='1'){
-                redirect(base_url().'home/polling/'.$_POST['poling']);
-            }
-        }
     }
     function polling($id=null){
         if(preg_match('#[0-9]+#',$id)){
@@ -311,7 +303,7 @@ class Home extends CI_Controller{
         
         // Poling
 	    $v=$this->votting->get_option();
-        $data['poling']=form_open('home/form/poling');
+        $data['poling']=form_open('form_proses/form/poling');
         $data['poling'].=form_hidden('poling_state','1');
         foreach($v as $a){
             $po = array(
