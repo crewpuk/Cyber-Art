@@ -10,10 +10,13 @@
 	font-size:16px;
 }
 /********************** Class Listing (li) **************************/
+.list ul{
+	padding: 0;
+	margin: 0;
+	margin-left: 20px;
+}
 .list li{
 	list-style:url(../images/folder.png);
-	margin-left:-12px;
-	margin-top:-10px;
 }
 /********************** Class Navigasi 2 Testimonial **************************/
 .testiGambar img{

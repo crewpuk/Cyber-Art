@@ -32,10 +32,10 @@ class Cyber_model extends CI_Model{
 		$this->db->update($table,$set,array('id'=>$id));	
 	}
 	
-    function update_views($id){
-        $views = $this->db->where('id',$id)->get('m_posting')->row();
+    function update_views($id,$table='m_posting'){
+        $views = $this->db->where('id',$id)->get($table)->row();
         $views = $views->view;
-        $this->db->set('view',($views+1))->where('id',$id)->update('m_posting');
+        $this->db->set('view',($views+1))->where('id',$id)->update($table);
     }
 }
 ?>
