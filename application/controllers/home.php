@@ -1,6 +1,6 @@
 <?php
 class Home extends CI_Controller{
-    
+    /******************************** Fungsi Construct **********************************/
 	function __Construct(){
 		parent::__Construct();	
 		$this->load->model('cyber_model');
@@ -8,6 +8,7 @@ class Home extends CI_Controller{
         $this->load->library(array("counter","votting"));
 	}
 	
+	/******************************** Fungsi Index **********************************/
 	function index(){
 	    //Status Halaman [beranda|posting|lain]
 	    $data['status_halaman'] = 'beranda';
@@ -28,6 +29,11 @@ class Home extends CI_Controller{
 		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
 		//Navigation 2 Kategori Berita
         $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
+		//Navigation 2 Terpopuler
+		$data['populer'] = $this->cyber_model->get_order('view','DESC','m_posting',0,5);
+		//Navigation 2 Terkini
+		$data['terkini'] = $this->cyber_model->get_order('tanggal','DESC','m_posting',0,5);
+		
         //galery
         $data['gallery'] = $this->cyber_model->get_all_data('m_gallery');
         //base_url
@@ -60,7 +66,7 @@ class Home extends CI_Controller{
                         'id'          => 'poling',
                         'value'       => $a['id']
                         );
-            $data['poling'].=form_radio($po).' '.$a['nama']."<br />\n";
+            $data['poling'].='<label>'.form_radio($po).' '.$a['nama']."</label><br />\n";
         }
         
         $data['poling'].="<br />".form_submit(array('value'=>'vote')).form_close();
@@ -96,6 +102,8 @@ class Home extends CI_Controller{
         	
 		$this->load->view('main',$data);		
 	}
+	
+	/******************************** Fungsi Artikel **********************************/
     function artikel($id){
         if(preg_match('#[0-9]+#',$id)&&$id!=0){
 	    //Status Halaman [beranda|posting|lain]
@@ -121,6 +129,11 @@ class Home extends CI_Controller{
 		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
 		//Navigation 2 Kategori Berita
         $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
+		//Navigation 2 Terpopuler
+		$data['populer'] = $this->cyber_model->get_order('view','DESC','m_posting',0,5);
+		//Navigation 2 Terkini
+		$data['terkini'] = $this->cyber_model->get_order('tanggal','DESC','m_posting',0,5);
+		
         //galery
         $data['gallery'] = $this->cyber_model->get_all_data('m_gallery');
         //base_url
@@ -187,6 +200,8 @@ class Home extends CI_Controller{
         redirect(base_url());
         }
     }
+	
+	/******************************** Fungsi Gallery **********************************/
     function gallery(){
 	    //Status Halaman [beranda|posting|lain]
 	    $data['status_halaman'] = 'lain';
@@ -203,6 +218,11 @@ class Home extends CI_Controller{
 		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
 		//Navigation 2 Kategori Berita
         $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
+		//Navigation 2 Terpopuler
+		$data['populer'] = $this->cyber_model->get_order('view','DESC','m_posting',0,5);
+		//Navigation 2 Terkini
+		$data['terkini'] = $this->cyber_model->get_order('tanggal','DESC','m_posting',0,5);
+		
         //galery
         $gallery = $this->cyber_model->get_all_data('m_gallery');
         //base_url
@@ -260,6 +280,8 @@ class Home extends CI_Controller{
         	
 		$this->load->view('main',$data);
     }
+	
+	/******************************** Fungsi Polling **********************************/
     function polling($id=null){
         if(preg_match('#[0-9]+#',$id)){
               $v=$this->votting->add_votting($id);
@@ -283,6 +305,11 @@ class Home extends CI_Controller{
 		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
 		//Navigation 2 Kategori Berita
         $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
+		//Navigation 2 Terpopuler
+		$data['populer'] = $this->cyber_model->get_order('view','DESC','m_posting',0,5);
+		//Navigation 2 Terkini
+		$data['terkini'] = $this->cyber_model->get_order('tanggal','DESC','m_posting',0,5);
+		
         //base_url
         $data['base_url_link'] = base_url();
         

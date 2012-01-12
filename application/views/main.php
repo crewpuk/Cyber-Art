@@ -72,7 +72,7 @@ foreach($css as $key)echo $key."\n";
                         <div id="textHead">Berita Sebelumnya</div>
 					</div>
                     <?php foreach($berita as $b) { ?>
-                    <div id="inner" class="list"><ul><li><?php echo anchor('#',$b->title) ?></li></ul></div>
+                    <div id="inner" class="list"><ul><li><?php echo anchor('home/artikel/'.$b->id,$b->title) ?></li></ul></div>
                     <?php } ?>
                 </div>
                 <?php
@@ -149,14 +149,31 @@ foreach($css as $key)echo $key."\n";
                     </div>
                     
                     <!-- Content Tab -->
+                    <!------------------------- Tab 1  --------------------------> 
                     <div class="contentTab" id="Tab1_content">
-                        Populer
+                        <?php foreach($populer as $pop) { ?>
+                        <div id="inner" class="list"><ul><li><?php echo anchor('home/artikel/'.$pop->id,$pop->title) ?></li></ul></div>
+                        <?php } ?>
                     </div>
+                    <!------------------------- Tab 2  --------------------------> 
                     <div class="contentTab hide" id="Tab2_content">
-                        Terkini
+                        <?php foreach($terkini as $ter) { ?>
+                        <div id="inner" class="list"><ul><li><?php echo anchor('home/artikel/'.$ter->id,$ter->title) ?></li></ul></div>
+                        <?php } ?>
                     </div>
+                    <!------------------------- Tab 3  --------------------------> 
                     <div class="contentTab hide" id="Tab3_content">
-                        Komentar
+                        <?php 
+						$q = mysql_query("SELECT * FROM `m_posting`,`m_komentar` Where `m_posting`.`id`=`m_komentar`.`id_komentar`");
+						while($data = mysql_fetch_array($q))
+						{
+						?>
+                        <div id="inner" class="list">
+                        	<ul>
+                        		<li><?php echo anchor($data['website'],$data['nama']) ?> Pada <?php echo anchor('home/artikel/'.$data['id'],$data['title']) ?></li>
+                       		</ul>
+                        </div>
+                        <?php } ?>
                     </div>
                     
                 </div>       
