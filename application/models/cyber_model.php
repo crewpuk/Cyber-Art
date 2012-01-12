@@ -15,7 +15,9 @@ class Cyber_model extends CI_Model{
 		$this->db->order_by($column,$order);
 		return $this->db->get($table,$limitEnd,$limitStart)->result();	
 	}
-	
+	function get_all_per_kategori($kategori,$table,$order,$limitStart=null,$limitEnd=null){
+		return $this->db->where('kategori',$kategori)->order_by('id',$order)->get($table,$order,$limitStart,$limitEnd)->result();	
+	}
 	function get_id($table,$id){
 		return $this->db->where('id',$id)->get($table)->row();
 	}
@@ -32,10 +34,10 @@ class Cyber_model extends CI_Model{
 		$this->db->update($table,$set,array('id'=>$id));	
 	}
 	
-    function update_views($id){
-        $views = $this->db->where('id',$id)->get('m_posting')->row();
+    function update_views($id,$table='m_posting'){
+        $views = $this->db->where('id',$id)->get($table)->row();
         $views = $views->view;
-        $this->db->set('view',($views+1))->where('id',$id)->update('m_posting');
+        $this->db->set('view',($views+1))->where('id',$id)->update($table);
     }
 }
 ?>

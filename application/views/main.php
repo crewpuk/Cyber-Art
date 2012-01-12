@@ -136,7 +136,7 @@ foreach($css as $key)echo $key."\n";
                         <div id="textHead">Kategori Berita</div>
                     </div>
                     <?php foreach($kategori as $kat) { ?>
-                    <div id="inner" class="list"><ul><li><?php echo anchor('#',$kat->kategori) ?></li></ul></div>
+                    <div id="inner" class="list"><ul><li><?php echo anchor('home/kategori/'.$kat->kategori,$kat->kategori) ?></li></ul></div>
                     <?php } ?>
                 </div>            
                 <!------------------------- Inner Navigation 2.3  -------------------------->    
@@ -183,7 +183,10 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Download</div>
                     </div>
-                    <div id="inner">Inner</div>
+                   <?php foreach($download as $down) { ?>
+					
+                    <div id="inner" class="list"><ul><li><?php echo anchor($base_url_link.'home/download/'.$down->id,$down->title) ?></li></ul></div>
+                    <?php } ?>
                 </div>            
                 <!------------------------- Inner Navigation 2.5  -------------------------->
                 <div id="innerNav">
@@ -191,7 +194,10 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Agenda</div>
                     </div>
-                    <div id="inner">Inner</div>
+						<?php foreach($agenda as $agen) { ?>
+					
+                    <div id="inner" class="list"><ul><li><?php echo anchor('home/agenda/'.$agen->id,$agen->title) ?></li></ul></div>
+                    <?php } ?>
                 </div>                   
             </div>
             <!------------------------- Navigation 3  -------------------------->

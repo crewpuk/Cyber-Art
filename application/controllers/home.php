@@ -33,9 +33,12 @@ class Home extends CI_Controller{
 		$data['populer'] = $this->cyber_model->get_order('view','DESC','m_posting',0,5);
 		//Navigation 2 Terkini
 		$data['terkini'] = $this->cyber_model->get_order('tanggal','DESC','m_posting',0,5);
-		
         //galery
         $data['gallery'] = $this->cyber_model->get_all_data('m_gallery');
+        //Panel Download
+        $data['download'] = $this->cyber_model->get_order('id','DESC','m_download',0,5);
+        //panelAgenda
+        $data['agenda'] = $this->cyber_model->get_order('id','ASC','m_agenda',0,3);
         //base_url
         $data['base_url_link'] = base_url();
         
@@ -54,6 +57,7 @@ class Home extends CI_Controller{
         $data['counter']=$counter;
         // End of Counter
         
+       
         // Poling
 	    $v=$this->votting->get_option();
         $data['poling']='';
@@ -136,6 +140,10 @@ class Home extends CI_Controller{
 		
         //galery
         $data['gallery'] = $this->cyber_model->get_all_data('m_gallery');
+        //Panel Download
+        $data['download'] = $this->cyber_model->get_order('id','DESC','m_download',0,5);
+        //panelAgenda
+        $data['agenda'] = $this->cyber_model->get_order('id','ASC','m_agenda',0,3);
         //base_url
         $data['base_url_link'] = base_url();
         
@@ -225,6 +233,10 @@ class Home extends CI_Controller{
 		
         //galery
         $gallery = $this->cyber_model->get_all_data('m_gallery');
+        //Panel Download
+        $data['download'] = $this->cyber_model->get_order('id','DESC','m_download',0,5);
+        //panelAgenda
+        $data['agenda'] = $this->cyber_model->get_order('id','ASC','m_agenda',0,3);
         //base_url
         $data['base_url_link'] = base_url();
         
@@ -309,7 +321,10 @@ class Home extends CI_Controller{
 		$data['populer'] = $this->cyber_model->get_order('view','DESC','m_posting',0,5);
 		//Navigation 2 Terkini
 		$data['terkini'] = $this->cyber_model->get_order('tanggal','DESC','m_posting',0,5);
-		
+        //Panel Download
+        $data['download'] = $this->cyber_model->get_order('id','DESC','m_download',0,5);
+        //panelAgenda
+        $data['agenda'] = $this->cyber_model->get_order('id','ASC','m_agenda',0,3);
         //base_url
         $data['base_url_link'] = base_url();
         
@@ -376,5 +391,186 @@ class Home extends CI_Controller{
             redirect(base_url().'home/polling');
         }
     }
+    
+    function agenda($id){
+		 //Status Halaman [beranda|posting|lain]
+	    $data['status_halaman'] = 'lain';
+		//Memanggil File CSS
+		$data['css'][]=link_tag('style/style.css');
+		$data['css'][]=link_tag('style/layout.css');
+		$data['css'][]=link_tag('style/class.css');
+		$data['css'][]=link_tag('style/lavalamp.css');
+		$data['css'][]=link_tag('style/slider.css');
+		$data['css'][]=link_tag('images/favico.png','shortcut icon','');
+        
+		//Navigation 2 Testimonial
+		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
+		//Navigation 2 Kategori Berita
+        $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
+        //galery
+        $data['gallery'] = $this->cyber_model->get_all_data('m_gallery');
+        //agenda
+        $data['agenda'] = $this->cyber_model->get_order('id','ASC','m_agenda',0,3);
+        //Panel Download
+        $data['download'] = $this->cyber_model->get_order('id','DESC','m_download',0,5);
+        //panelAgenda
+        $data['agenda'] = $this->cyber_model->get_order('id','ASC','m_agenda',0,3);
+        //base_url
+        $data['base_url_link'] = base_url();
+        
+        // Counter
+        $counter['number']=$this->counter->get_counter();
+        $counter['html']='';
+        $img_url = base_url().'/images';
+        $max = 8;
+        $length = strlen($counter['number']['all']);
+        for($i=0;$i<($max-$length);$i++){
+        	$counter['html'].='<img src="'.$img_url.'/counter/0.png" />';
+        }
+        for($i=0;$i<$length;$i++){
+        	$counter['html'].='<img src="'.$img_url.'/counter/'.substr($counter['number']['all'],$i,1).'.png" />';
+        }
+        $data['counter']=$counter;
+        // End of Counter
+        
+        // Poling
+	    $v=$this->votting->get_option();
+        $data['poling']='';
+        $data['poling'].="<h4>Mau Kemana Setelah SMU atau SMK? </h4>";
+        $data['poling'].=form_open('form_proses/form/poling');
+        $data['poling'].=form_hidden('poling_state','1');
+        foreach($v as $a){
+            $po = array(
+                        'name'        => 'poling',
+                        'id'          => 'poling',
+                        'value'       => $a['id']
+                        );
+            $data['poling'].=form_radio($po).' '.$a['nama']."<br />\n";
+        }
+        
+        $data['poling'].="<br />".form_submit(array('value'=>'vote')).form_close();
+        $data['poling'].=anchor(base_url().'home/polling/','Hasil Polling');
+        // End of Poling
+        
+        //////// Content
+        $data['content'] = '';
+        $a = $this->cyber_model->get_id('m_agenda', $id);
+			$data['content'] .= '
+				<div><strong>'.$a->title.'</strong></div>
+				<div><strong>Diposting Tanggal </strong>'.$a->tanggal.'</div>
+				<div><strong>Topik </strong>'.$a->agenda.'</div>
+				<div><strong>Tanggal </strong>'.$a->tgl_agenda.'</div>
+				<div><strong>Tempat </strong>'.$a->tempat_agenda.'</div>
+				<div><strong>Pukul </strong>'.$a->waktu_agenda.'</div>
+				<div><strong>Pengirim [Contact Us]</strong>'.$a->pengirim.'</div>
+				
+					';
+        //////// End of Content
+        	
+		$this->load->view('main',$data);	
+		
+		
+	}
+	
+	function download($id){
+		$this->cyber_model->update_views($id,'m_download');
+		$patch = $this->cyber_model->get_id('m_download',$id);
+		
+		redirect(base_url().'temp/download/'.$patch->doc);
+	}
+	
+	function kategori(){
+		
+		
+		 //Status Halaman [beranda|posting|lain]
+	    $data['status_halaman'] = 'lain';
+		//Memanggil File CSS
+		$data['css'][]=link_tag('style/style.css');
+		$data['css'][]=link_tag('style/layout.css');
+		$data['css'][]=link_tag('style/class.css');
+		$data['css'][]=link_tag('style/lavalamp.css');
+		$data['css'][]=link_tag('style/slider.css');
+		$data['css'][]=link_tag('images/favico.png','shortcut icon','');
+        
+		//Navigation 2 Testimonial
+		$data['testimoni'] = $this->cyber_model->get_order('id','DESC','m_testimoni',0,5);
+		//Navigation 2 Kategori Berita
+        $data['kategori'] = $this->cyber_model->distinct('kategori','m_posting');
+        //galery
+        $data['gallery'] = $this->cyber_model->get_all_data('m_gallery');
+        //agenda
+        $data['per_kategori'] = $this->cyber_model->get_all_per_kategori($kategori,'m_posting','DESC',0,5);
+        //Panel Download
+        $data['download'] = $this->cyber_model->get_order('id','DESC','m_download',0,5);
+        //panelAgenda
+        $data['agenda'] = $this->cyber_model->get_order('id','ASC','m_agenda',0,3);
+        //base_url
+        $data['base_url_link'] = base_url();
+        
+        // Counter
+        $counter['number']=$this->counter->get_counter();
+        $counter['html']='';
+        $img_url = base_url().'/images';
+        $max = 8;
+        $length = strlen($counter['number']['all']);
+        for($i=0;$i<($max-$length);$i++){
+        	$counter['html'].='<img src="'.$img_url.'/counter/0.png" />';
+        }
+        for($i=0;$i<$length;$i++){
+        	$counter['html'].='<img src="'.$img_url.'/counter/'.substr($counter['number']['all'],$i,1).'.png" />';
+        }
+        $data['counter']=$counter;
+        // End of Counter
+        
+        // Poling
+	    $v=$this->votting->get_option();
+        $data['poling']='';
+        $data['poling'].="<h4>Mau Kemana Setelah SMU atau SMK? </h4>";
+        $data['poling'].=form_open('form_proses/form/poling');
+        $data['poling'].=form_hidden('poling_state','1');
+        foreach($v as $a){
+            $po = array(
+                        'name'        => 'poling',
+                        'id'          => 'poling',
+                        'value'       => $a['id']
+                        );
+            $data['poling'].=form_radio($po).' '.$a['nama']."<br />\n";
+        }
+        
+        $data['poling'].="<br />".form_submit(array('value'=>'vote')).form_close();
+        $data['poling'].=anchor(base_url().'home/polling/','Hasil Polling');
+        // End of Poling
+        
+        //////// Content
+        $data['content'] = '';
+        $art = $this->cyber_model->get_all_per_kategori($kategori,'m_posting','DESC',0,5);
+			$data['content'] .= '';
+			 foreach($art as $a) {
+	    $subText = substr($a->isi,0,100);
+	    $someText = explode(' ',substr($a->isi,100,200));
+	    $dateDB = $a->tanggal;
+	    $year = substr($dateDB,0,4);
+	    $month = substr($dateDB,4,3);
+	    $day = substr($dateDB,8);
+	    $date = $day.$month.'-'.$year;
+	    $img = array(
+	    "src" => "images/art/".$a->image."",
+	    "width" => "300",
+	    "height" => "200",
+	    "title" => "".$a->image."",
+	    "alt" => "".$a->image.""
+	    );
+        $data['content'] .= '
+                <div class="artHead">Posted On :'.$date.'</div>
+                <div class="artTitle">'.$a->title.br(2).'</div>
+                <div class="artImage">'.img($img).br(2).'</div>
+                <div class="artText">'.nl2br($subText.$someText[0]).'...</div><br />
+                <div class="rdMore">'.anchor('home/artikel/'.$a->id,'Selengkapnya').'</div>
+                <hr />';
+        }	
+        //////// End of Content
+        	
+		$this->load->view('main',$data);	
+	}
 }
 ?>

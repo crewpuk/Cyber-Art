@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Waktu pembuatan: 12. Januari 2012 jam 23:30
+-- Waktu pembuatan: 13. Januari 2012 jam 00:25
 -- Versi Server: 5.0.45
 -- Versi PHP: 5.2.3
 
@@ -29,12 +29,14 @@ CREATE TABLE `m_agenda` (
   `pengirim` varchar(55) NOT NULL,
   `tanggal` date NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- 
 -- Dumping data untuk tabel `m_agenda`
 -- 
 
+INSERT INTO `m_agenda` VALUES (1, 'Sunatan', 'test123', '2012-02-02', 'Jakarta', '08.00', 'Admin', '2012-01-12');
+INSERT INTO `m_agenda` VALUES (2, 'Nikahan', 'test123123123', '2012-02-08', 'Bogor', '09.00', 'User', '2012-01-11');
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,8 @@ CREATE TABLE `m_counter` (
 -- Dumping data untuk tabel `m_counter`
 -- 
 
-INSERT INTO `m_counter` VALUES ('2012-01-12', '127.0.0.1', 51);
+INSERT INTO `m_counter` VALUES ('2012-01-12', '127.0.0.1', 62);
+INSERT INTO `m_counter` VALUES ('2012-01-13', '127.0.0.1', 4);
 
 -- --------------------------------------------------------
 
@@ -88,12 +91,15 @@ CREATE TABLE `m_download` (
   `doc` varchar(50) NOT NULL,
   `view` int(5) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 -- 
 -- Dumping data untuk tabel `m_download`
 -- 
 
+INSERT INTO `m_download` VALUES (1, 'Modul Pascal', 'Modul Pascal.pdf', 0);
+INSERT INTO `m_download` VALUES (2, 'Latihan', '1.doc', 1);
+INSERT INTO `m_download` VALUES (5, 'Proses Enkripsi', 'proses.odt', 1);
 
 -- --------------------------------------------------------
 
@@ -132,7 +138,7 @@ CREATE TABLE `m_his` (
   `time` time NOT NULL,
   `time_u` bigint(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 -- 
 -- Dumping data untuk tabel `m_his`
@@ -149,6 +155,10 @@ INSERT INTO `m_his` VALUES (8, '127.0.0.1', '2012-01-12', '22:19:56', 1326381596
 INSERT INTO `m_his` VALUES (9, '127.0.0.1', '2012-01-12', '22:28:11', 1326382091);
 INSERT INTO `m_his` VALUES (10, '127.0.0.1', '2012-01-12', '23:23:06', 1326385386);
 INSERT INTO `m_his` VALUES (11, '127.0.0.1', '2012-01-12', '23:28:18', 1326385698);
+INSERT INTO `m_his` VALUES (12, '127.0.0.1', '2012-01-12', '23:43:06', 1326386586);
+INSERT INTO `m_his` VALUES (13, '127.0.0.1', '2012-01-12', '23:51:12', 1326387072);
+INSERT INTO `m_his` VALUES (14, '127.0.0.1', '2012-01-13', '00:17:58', 1326388678);
+INSERT INTO `m_his` VALUES (15, '127.0.0.1', '2012-01-13', '00:23:19', 1326388999);
 
 -- --------------------------------------------------------
 
