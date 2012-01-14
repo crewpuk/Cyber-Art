@@ -243,7 +243,7 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Shout Box</div>
                     </div>
-                    <div id="inner">Inner</div>
+                    <div id="inner"><?php echo $shoutbox; ?></div>
                 </div>
                 <!------------------------- Inner Navigation 3.4  -------------------------->
                 <div id="innerNav">

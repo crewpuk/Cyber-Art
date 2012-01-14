@@ -12,8 +12,8 @@ class Cyber_model extends CI_Model{
 		return $this->db->get($table,$limitEnd,$limitStart)->result();
 	}
 	function get_order($column,$order,$table,$limitStart='',$limitEnd=''){
-		$this->db->order_by($column,$order);
-		return $this->db->get($table,$limitEnd,$limitStart)->result();	
+		//$this->db->order_by($column,$order);
+		return $this->db->order_by($column,$order)->get($table,$limitEnd,$limitStart)->result();
 	}
 	function get_all_per_kategori($kategori,$table,$order,$limitStart=null,$limitEnd=null){
 		return $this->db->where('kategori',$kategori)->order_by('id',$order)->get($table,$order,$limitStart,$limitEnd)->result();	
@@ -23,7 +23,7 @@ class Cyber_model extends CI_Model{
 	}
 	
 	function distinct($column,$table){
-		return $this->db->query("SELECT DISTINCT `".$column."` FROM `".$table."`")->result();	
+		return $this->db->query("SELECT DISTINCT `".$column."` FROM `".$table."`")->result();
 	}
 	
 	function delete($table,$id){

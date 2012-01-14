@@ -253,3 +253,16 @@
 .vot_legend .col2{background-color: #1f8dea;}
 .vot_legend .col3{background-color: #e6781f;}
 .vot_legend .col4{background-color: #1fead9;}
+
+/*********************** Shout Box ***************/
+.shoutbox_messs{
+    background-color: #f0f7ff;
+    border-bottom: 2px solid #b2d1f2;
+}
+.shoutbox_mess{
+    background-color: #d6eaff;
+    border-bottom: 2px solid #b2d1f2;
+}
+.shoutbox_pesan{
+    padding: 3px 1px 3px 5px;
+}

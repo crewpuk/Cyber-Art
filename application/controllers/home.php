@@ -5,7 +5,7 @@ class Home extends CI_Controller{
 		parent::__Construct();	
 		$this->load->model('cyber_model');
 		$this->load->helper(array('html','url','date','form'));
-        $this->load->library(array("counter","votting"));
+        $this->load->library(array("counter","votting","table"));
 	}
 	
 	/******************************** Fungsi Index **********************************/
@@ -57,6 +57,45 @@ class Home extends CI_Controller{
         $data['counter']=$counter;
         // End of Counter
         
+        // Shoutbox
+        $data['shoutbox']='';
+        $shout = $this->db->query("SELECT * FROM `m_shoutbox` ORDER BY `time_stamp` DESC")->result();
+        $data['shoutbox'].="<div style=\"height: 300px;overflow-y: scroll;\">";
+        $i=1;
+        foreach($shout as $d){
+            $date = explode(' ',$d->time_stamp);
+            $tgl = explode('-',$date[0]);
+            $time_stamp = $date[1].' '.$tgl[2].'/'.$tgl[1].'/'.$tgl[0];
+            $c=($i%2==0)?"s":"";
+            $emot = array(';)'=>img(base_url().'images/emot/blink.gif'),':]'=>img(base_url().'images/emot/flirty.gif'),':D'=>img(base_url().'images/emot/bigsmile.gif'),':('=>img(base_url().'images/emot/sad.gif'),':)'=>img(base_url().'images/emot/smile.gif'));
+            foreach($emot as $k=>$v){
+                $src[] = $k;
+                $rpl[] = $v;
+            }
+            $d->pesan = str_replace($src,$rpl,$d->pesan);
+            $data['shoutbox'].="<div class=\"shoutbox_mess$c\"><strong><a href=\"$d->url\" target=\"_blank\">$d->nama</a></strong> mengatakan:\n<div class=\"shoutbox_pesan\">$d->pesan</div>\n$time_stamp</div>\n";
+            $i++;
+        }
+        $data['shoutbox'].="</div>";
+        $data['shoutbox'].=form_open('form_proses/form/shoutbox');
+        $data['shoutbox'].=form_hidden('back',str_replace('index.php','',$_SERVER['PHP_SELF']));
+        $tmpl = array('table_open'=>'<table border="0" cellpadding="3" cellspacing="0" width="100%" class="shoutbox_table">');
+        $list = array('Nama',form_input(array('name'=>'nama','style'=>'width: 120px;')),'Website',form_input(array('name'=>'url','style'=>'width: 120px;')),'Pesan',form_textarea(array('name'=>'pesan','rows'=>'3','style'=>'width: 120px;')));
+        $new_list = $this->table->make_columns($list, 2);
+        $this->table->set_template($tmpl);
+        $data['shoutbox'].=$this->table->generate($new_list);
+        $emot = array('blink','flirty','bigsmile','sad','smile');
+        $emotKey = array('blink'=>';)','flirty'=>':]','bigsmile'=>':D','sad'=>':(','smile'=>':)');
+        foreach($emot as $e){
+            $img = array(
+    	    "src" => base_url()."images/emot/".$e.".gif",
+    	    "title" => $emotKey[$e],
+    	    "class" => "fortip_top"
+    	    );
+            $data['shoutbox'].=img($img);
+        }
+        $data['shoutbox'].='<br />'.form_submit(array('name'=>'shoutbox_btn'),'Kirim').form_close();
+        // End of Shoutbox
        
         // Poling
 	    $v=$this->votting->get_option();
@@ -72,7 +111,6 @@ class Home extends CI_Controller{
                         );
             $data['poling'].='<label>'.form_radio($po).' '.$a['nama']."</label><br />\n";
         }
-        
         $data['poling'].="<br />".form_submit(array('value'=>'vote')).form_close();
         $data['poling'].=anchor(base_url().'home/polling/','Hasil Polling');
         // End of Poling
@@ -162,6 +200,30 @@ class Home extends CI_Controller{
         $data['counter']=$counter;
         // End of Counter
         
+        // Shoutbox
+        $data['shoutbox']='';
+        $shout = $this->db->query("SELECT * FROM `m_shoutbox` ORDER BY `time_stamp` DESC")->result();
+        $data['shoutbox'].="<div style=\"height: 300px;overflow-y: scroll;\">";
+        $i=1;
+        foreach($shout as $d){
+            $date = explode(' ',$d->time_stamp);
+            $tgl = explode('-',$date[0]);
+            $time_stamp = $date[1].' '.$tgl[2].'/'.$tgl[1].'/'.$tgl[0];
+            $c=($i%2==0)?"s":"";
+            $data['shoutbox'].="<div class=\"shoutbox_mess$c\"><strong><a href=\"$d->url\" target=\"_blank\">$d->nama</a></strong> mengatakan:\n<div class=\"shoutbox_pesan\">$d->pesan</div>\n$time_stamp</div>\n";
+            $i++;
+        }
+        $data['shoutbox'].="</div>";
+        $data['shoutbox'].=form_open('form_proses/form/shoutbox');
+        $data['shoutbox'].=form_hidden('back',$_SERVER['PHP_SELF']);
+        $tmpl = array('table_open'=>'<table border="0" cellpadding="3" cellspacing="0" width="100%" class="shoutbox_table">');
+        $list = array('Nama',form_input(array('name'=>'nama','style'=>'width: 120px;')),'Website',form_input(array('name'=>'url','style'=>'width: 120px;')),'Pesan',form_textarea(array('name'=>'pesan','rows'=>'3','style'=>'width: 120px;')));
+        $new_list = $this->table->make_columns($list, 2);
+        $this->table->set_template($tmpl);
+        $data['shoutbox'].=$this->table->generate($new_list);
+        $data['shoutbox'].=form_submit(array('name'=>'shoutbox_btn'),'Kirim').form_close();
+        // End of Shoutbox
+        
         // Poling
 	    $v=$this->votting->get_option();
         $data['poling']=form_open('form_proses/form/poling');
@@ -176,6 +238,7 @@ class Home extends CI_Controller{
         }
         
         $data['poling'].=form_submit(array('value'=>'vote')).form_close();
+        $data['poling'].=anchor(base_url().'home/polling/','Hasil Polling');
         // End of Poling
         
         //////// Content
@@ -269,6 +332,7 @@ class Home extends CI_Controller{
         }
         
         $data['poling'].=form_submit(array('value'=>'vote')).form_close();
+        $data['poling'].=anchor(base_url().'home/polling/','Hasil Polling');
         // End of Poling
         
         //////// Content
@@ -357,6 +421,7 @@ class Home extends CI_Controller{
         }
         
         $data['poling'].=form_submit(array('value'=>'vote')).form_close();
+        $data['poling'].=anchor(base_url().'home/polling/','Hasil Polling');
         // End of Poling
         
         //////// Content

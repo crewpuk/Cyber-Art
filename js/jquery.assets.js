@@ -7,6 +7,12 @@ $(document).ready(function() {
 	effect: "fade",
 	opacity: 0.7
     });
+    $('.fortip_top[title]').tooltip({
+	position: "top center",
+	offset: [-2, 10],
+	effect: "fade",
+	opacity: 0.7
+    });
     $('div.vot_res[title]').tooltip({
 	position: "bottom center",
 	offset: [13,0],
