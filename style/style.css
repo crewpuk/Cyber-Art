@@ -5,6 +5,7 @@ body {
 	background: url(../images/bg12.png) right top scroll repeat-x;
 	line-height:1.5em;
 	font-family:Verdana, Geneva, sans-serif;
+    padding-top: 25px;
 }
 a { text-decoration:none; color:black; }
 a:hover { text-decoration:underline; }

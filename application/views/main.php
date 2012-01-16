@@ -15,10 +15,12 @@ foreach($css as $key)echo $key."\n";
 <script src="<?php echo $base_url_link.'js/jquery.lavalamp.min.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.assets.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/s3Slider.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery_popUp.js' ?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jqueryP.js' ?>" type="text/javascript"></script>
 </head>
 
 <body>
-<div id="layout2"><img src="<?php echo $base_url_link;?>images/logo/cyberart_1.png" width="300" height="150"/></div>
+<div id="layout2"><img src="<?php echo $base_url_link;?>images/logo/cyberart_1_min.png"/></div>
 <!------------------------- Layout  -------------------------->
 <div id="layout">
 	
@@ -30,28 +32,34 @@ foreach($css as $key)echo $key."\n";
 			<li><a href="#">Profil</a></li>
 			<li><a href="#">E-Application</a></li>
 			<li><a href="#">Program Studi</a></li>
-			<li><a href="#">Pendaftaran Online</a></li>	   
+			<li><a href="#">Pendaftaran Online</a></li>	  
+        </ul> 
     </div>
     <!------------------------- Banner  -------------------------->
     <div id="banner">
 		<div id="slider1">
         <ul id="slider1Content">
             <li class="slider1Image">
-                <img src="<?php echo $base_url_link;?>images/banner.jpg" alt="1" />
-                <span class="left"><strong>Title text 1</strong><br />Content text...</span></li>
+                <img src="<?php echo $base_url_link;?>images/example_images/1.jpg" alt="1" />
+                <span class="left"><strong>Title text 1</strong><br />Content text...</span>
+            </li>
             <li class="slider1Image">
-                <img src="<?php echo $base_url_link;?>images/example_images/wide/2.jpg" alt="2" />
-                <span class="left"><strong>Title text 2</strong><br />Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...</span></li>
+                <img src="<?php echo $base_url_link;?>images/example_images/2.jpg" alt="2" />
+                <span class="left"><strong>Title text 2</strong><br />Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...</span>
+            </li>
             <li class="slider1Image">
-                <img src="<?php echo $base_url_link;?>images/example_images/wide/3.jpg" alt="3" />
-                <span class="left"><strong>Title text 2</strong><br />Content text...</span></li>
+                <img src="<?php echo $base_url_link;?>images/example_images/3.jpg" alt="3" />
+                <span class="left"><strong>Title text 2</strong><br />Content text...</span>
+            </li>
             <li class="slider1Image">
-                <img src="<?php echo $base_url_link;?>images/example_images/wide/4.jpg" alt="4" />
-                <span class="left"><strong>Title text 2</strong><br />Content text...</span></li>
+                <img src="<?php echo $base_url_link;?>images/example_images/4.jpg" alt="4" />
+                <span class="left"><strong>Title text 2</strong><br />Content text...</span>
+            </li>
             <li class="slider1Image">
-                <img src="<?php echo $base_url_link;?>images/example_images/wide/5.jpg" alt="5" />
-                <span class="left"><strong>Title text 2</strong><br />Content text...</span></li>
-            <div class="clear slider1Image"></div>
+                <img src="<?php echo $base_url_link;?>images/example_images/5.jpg" alt="5" />
+                <span class="left"><strong>Title text 2</strong><br />Content text...</span>
+            </li>
+            <div class="clear"></div>
         </ul>
     </div>
     </div>
@@ -86,21 +94,35 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Galeri Foto</div>
                     </div>
-                    <div id="inner"><?php foreach($gallery as $g){ 
+                    <div id="inner">
+                    <div class='archiveswrap'><?php foreach($gallery as $g){ 
                     $img = array(
                     "src" => "images/".$g->file,
-                    "width" => 100,
-                    "height" => 100,
-                    "title" => "".$g->nama_album."",
-                    "alt" => "".$g->nama.""
+                    "title" => $g->nama_album,
+                    "alt" => $g->nama
                     );
                     
                     //echo '<div class="artImage">'.img($img).br(2).'</div>';
-                   	echo "<div class='testiGambar'>".img($img).br(1).$g->deskripsi."</div>";
+                    echo "<div class='archivesbox' align='center'><a class='slide1' rel='".$base_url_link."images/".$g->file."'><img src='".$base_url_link."images/".$g->file."' alt='' /></a></div>";
 					//echo "<div class='testi'>".img($img).br(2)."</div>";
                     //("'" .$g->nama. "'");
                     
-                    } ?></div>
+                    } ?>
+                    </div>
+                    <div class="clear"></div>
+                    </div>
+                    <span id="overlay" onClick="popclose();"></span>
+                    <div id="popup">
+                    <div id="closepopup" onClick="popclose();"></div>
+                    <span id="image2"></span>
+                    <span id="copy"></span>
+                    </div>
+                    
+                    <span style="display: none;" id="overlay2" onClick="popclose2();"></span>
+                    <div style="display: none;" id="popup2" align="center">
+                    <div style="display: none;" id="closepopup2" onClick="popclose2();">x</div>
+                    <span id="image"><img src="043.JPG"/></span>
+                    </div><!-- #popup2 -->
                 </div>
                 <?php }/************************* Status Halaman *******************************/?>
             </div>

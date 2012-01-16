@@ -1,12 +1,12 @@
 #slider1 {
-    width: 919px; /* important to be same as image width */
+    width: 920px; /* important to be same as image width */
     height: 250px; /* important to be same as image height */
     position: relative; /* important */
 	overflow: hidden; /* important */
 }
 
 #slider1Content {
-    width: 919px; /* important to be same as image width or wider */
+    width: 920px; /* important to be same as image width or wider */
     position: absolute;
 	top: -10;
 	margin-left: -40;
