@@ -95,19 +95,8 @@ foreach($css as $key)echo $key."\n";
                         <div id="textHead">Galeri Foto</div>
                     </div>
                     <div id="inner">
-                    <div class='archiveswrap'><?php foreach($gallery as $g){ 
-                    $img = array(
-                    "src" => "images/".$g->file,
-                    "title" => $g->nama_album,
-                    "alt" => $g->nama
-                    );
-                    
-                    //echo '<div class="artImage">'.img($img).br(2).'</div>';
-                    echo "<div class='archivesbox' align='center'><a class='slide1' rel='".$base_url_link."images/".$g->file."'><img src='".$base_url_link."images/".$g->file."' alt='' /></a></div>";
-					//echo "<div class='testi'>".img($img).br(2)."</div>";
-                    //("'" .$g->nama. "'");
-                    
-                    } ?>
+                    <div class='archiveswrap'>
+                    <?php echo $gallery; ?>
                     </div>
                     <div class="clear"></div>
                     </div>
@@ -134,22 +123,7 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Testimonial</div>
                     </div>
-                    <?php foreach($testimoni as $t) { ?>
-                    <div id="inner">
-                    <?php
-                    $img = array(
-					"src" => "images/".$t->photo,
-					"width" => 50,
-					"height" => 50,
-                    "class" => "fortip",
-					"title" => "".$t->nama."<br />".$t->jabatan."",
-					"alt" => "".$t->photo.""
-					);
-					echo "<div class='testiGambar'>".img($img)."</div>";
-					echo "<div class='testi'>".$t->komentar."</div>";
-					?>
-                    </div>
-                    <?php } ?>
+                   <?php echo $testimoni; ?>
                 </div>
                 <!------------------------- Inner Navigation 2.2  -------------------------->    
                 <div id="innerNav">
@@ -157,9 +131,7 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Kategori Berita</div>
                     </div>
-                    <?php foreach($kategori as $kat) { ?>
-                    <div id="inner" class="list"><ul><li><?php echo anchor('home/kategori/'.$kat->kategori,$kat->kategori) ?></li></ul></div>
-                    <?php } ?>
+                   	<?php echo $kat_berita; ?>
                 </div>            
                 <!------------------------- Inner Navigation 2.3  -------------------------->    
                 <div id="innerNav">                    
@@ -173,29 +145,15 @@ foreach($css as $key)echo $key."\n";
                     <!-- Content Tab -->
                     <!------------------------- Tab 1  --------------------------> 
                     <div class="contentTab" id="Tab1_content">
-                        <?php foreach($populer as $pop) { ?>
-                        <div id="inner" class="list"><ul><li><?php echo anchor('home/artikel/'.$pop->id,$pop->title) ?></li></ul></div>
-                        <?php } ?>
+                        <?php echo $terpopuler; ?>
                     </div>
                     <!------------------------- Tab 2  --------------------------> 
                     <div class="contentTab hide" id="Tab2_content">
-                        <?php foreach($terkini as $ter) { ?>
-                        <div id="inner" class="list"><ul><li><?php echo anchor('home/artikel/'.$ter->id,$ter->title) ?></li></ul></div>
-                        <?php } ?>
+                        <?php echo $terkini; ?>
                     </div>
                     <!------------------------- Tab 3  --------------------------> 
                     <div class="contentTab hide" id="Tab3_content">
-                        <?php 
-						$q = mysql_query("SELECT * FROM `m_posting`,`m_komentar` Where `m_posting`.`id`=`m_komentar`.`id_komentar`");
-						while($data = mysql_fetch_array($q))
-						{
-						?>
-                        <div id="inner" class="list">
-                        	<ul>
-                        		<li><?php echo anchor($data['website'],$data['nama']) ?> Pada <?php echo anchor('home/artikel/'.$data['id'],$data['title']) ?></li>
-                       		</ul>
-                        </div>
-                        <?php } ?>
+                      	<?php echo $komentar; ?>
                     </div>
                     
                 </div>       
@@ -205,10 +163,7 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Download</div>
                     </div>
-                   <?php foreach($download as $down) { ?>
-					
-                    <div id="inner" class="list"><ul><li><?php echo anchor($base_url_link.'home/download/'.$down->id,$down->title) ?></li></ul></div>
-                    <?php } ?>
+                   <?php echo $download; ?>
                 </div>            
                 <!------------------------- Inner Navigation 2.5  -------------------------->
                 <div id="innerNav">
@@ -216,10 +171,7 @@ foreach($css as $key)echo $key."\n";
                     	<div id="checklist"></div>
                         <div id="textHead">Agenda</div>
                     </div>
-						<?php foreach($agenda as $agen) { ?>
-					
-                    <div id="inner" class="list"><ul><li><?php echo anchor('home/agenda/'.$agen->id,$agen->title) ?></li></ul></div>
-                    <?php } ?>
+						<?php echo $agenda; ?>
                 </div>                   
             </div>
             <!------------------------- Navigation 3  -------------------------->

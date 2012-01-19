@@ -39,5 +39,11 @@ class Cyber_model extends CI_Model{
         $views = $views->view;
         $this->db->set('view',($views+1))->where('id',$id)->update($table);
     }
+	
+	function join_table_komentar(){
+			$this->db->select('*');
+			$this->db->from('m_posting');
+			return $this->db->join('m_komentar', 'm_komentar.id_komentar = m_posting.id')->get()->result();
+		}
 }
 ?>
