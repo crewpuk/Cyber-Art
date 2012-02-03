@@ -114,9 +114,8 @@ class CI_Content_panel{
 	function panel_kat_berita(){
 		 $kategori = $this->CI->cyber_model->distinct('kategori','m_posting');
 		 	 foreach($kategori as $kat) {
-             $re_kategori .= '<div id="inner" class="list"><ul><li>';
-			 
-			 $re_kategori .= anchor('home/kategori/'.$kat->kategori,$kat->kategori);
+             $re_kategori .= '<div id="inner" class="list" ><ul><li class="fortip" title="Telah Dilihat '.$kat->merge.' kali">';
+			 $re_kategori .= anchor('home/kategori/'.$kat->dis,$kat->dis);
 			 $re_kategori .= '</li></ul></div>';
                  }
 		 return $re_kategori;

@@ -5,7 +5,7 @@
 <title>Cyber Art</title>
 <!------------------------- Link CSS  -------------------------->
 <?php
-foreach($css as $key)echo $key."\n";
+/*foreach($css)*/echo $css."\n";
 ?>
 <script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.tools.min.js'?>" type="text/javascript"></script>
@@ -80,7 +80,13 @@ foreach($css as $key)echo $key."\n";
                         <div id="textHead">Berita Sebelumnya</div>
 					</div>
                     <?php foreach($berita as $b) { ?>
-                    <div id="inner" class="list"><ul><li><?php echo anchor('home/artikel/'.$b->id,$b->title) ?></li></ul></div>
+                    <div id="inner" class="list">
+                    	<ul>
+                        	<li>
+							<?php echo anchor('home/artikel/'.$b->id,$b->title) ?>
+                            </li>
+                        </ul>
+                    </div>
                     <?php } ?>
                 </div>
                 <?php
