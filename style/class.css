@@ -271,3 +271,69 @@
 .contentTab{
 	height: 150px;
 }
+
+/****************** Galeri ******************/
+.archiveswrap{
+    max-width:420px;
+    width:420px;
+    padding:10px 0;
+}
+.archivesbox{
+    width: 140px;
+    height: 140px;
+    float: left;
+}
+.archivesbox a img{
+    max-width: 130px;
+    max-height: 130px;
+    margin: 2px 5px;
+}
+
+/******************** Navigasi *********************/
+.navigation {
+            position: relative;
+            height: 29px;
+            width: 100%;
+        }
+                .navigation li {
+                    float: left;
+                    list-style: none;
+                }
+                    .navigation li.back {
+                      -moz-border-radius: 5px;
+                      -webkit-border-radius: 5px;
+                      -o-border-radius: 5px;
+                      -ms-border-radius: 5px;
+                      -khtml-border-radius: 5px;
+                      border-radius: 5px;
+                        
+                        -moz-box-shadow: inset 0 3px 10px #222, inset 0 -3px 10px #888;
+                        -webkit-box-shadow: inset 0 3px 10px #222, inset 0 -3px 10px #888;
+                        box-shadow: inset 0 3px 10px #222, inset 0 -3px 10px #888;
+                        
+                        background: url(../images/carbon50.png);
+                        width: 9px;
+                        height: 30px;
+                        z-index: 8;
+                        position: absolute;
+                    }
+                    .navigation li a {
+                        font: bold 14px arial;
+                        text-decoration: none;
+                        color: #000;
+                        outline: none;
+                        text-align: center;
+                        top: 7px;
+                        text-transform: uppercase;
+                        letter-spacing: 0;
+                        z-index: 10;
+                        display: block;
+                        float: left;
+                        height: 30px;
+                        position: relative;
+                        overflow: hidden;
+                        margin: auto 10px;
+                    }
+                        .navigation li a:hover, .navigation li a:active, .navigation li a:visited {
+                            border: none;
+                        }

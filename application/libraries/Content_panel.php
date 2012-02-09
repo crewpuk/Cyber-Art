@@ -130,7 +130,7 @@ class CI_Content_panel{
 		  
         $testi .= '<div id="inner">';
 			$img = array(
-			"src" => "images/".$t->photo,
+			"src" => "images/testi/".$t->photo,
 			"width" => 50,
 			"height" => 50,
 			"class" => "fortip",
@@ -214,18 +214,35 @@ class CI_Content_panel{
 	
 	function panel_gallery(){
 	 	 $gallery = $this->CI->cyber_model->get_all_data('m_gallery');
-	 
-		 foreach($gallery as $g){ 
-			$img = array(
-			"src" => base_url()."images/".$g->file,
-			"title" => $g->nama_album,
-			"alt" => $g->nama
-			);
-                   
-			$re_gallery .= "<div class='archivesbox' align='center'>";
-			$re_gallery .= "<a class='slide1' rel='".base_url()."images/".$g->file."'>";
-			$re_gallery .= "<img src='".base_url()."images/".$g->file."' alt='' /></a></div>";
-            } 
-			return $re_gallery;
+		 $re_gallery='';
+		 $gallery_setup='';
+		 foreach($gallery as $g){
+		 	$h='';
+		 	if($nm_album==NULL){
+			 	$nm_album=$g->nama_album;
+		 		$no_img=0;
+		 		
+		 	}
+		 	if($nm_album!=$g->nama_album){
+			 	$nm_album=$g->nama_album;
+			 	$no_img=0;
+			}
+		 	if($nm_album==$g->nama_album){
+		 		$strrpl_nama_album = str_replace(' ', '_', $g->nama_album);
+		 		if($no_img>0)$h=' hidden';
+		 		if($no_img==0)$re_gallery.="<div class='archivesbox' align='center'>";
+		 		$re_gallery.='<a class="'.$strrpl_nama_album.$h.'" title="'.$g->deskripsi.'" href="'.base_url().'images/gallery/'.$g->file.'">';
+		 		if($no_img==0){
+			 		$re_gallery.='<img src="'.base_url().'images/gallery/'.$g->file.'" alt="'.$g->nama.'" />';
+			 		$gallery_setup.='Shadowbox.setup("a.'.$strrpl_nama_album.'",{gallery:"'.$strrpl_nama_album.'",continuous:true,counterType:"skip"});';
+		 		}
+		 		$re_gallery.='</a>';
+		 		if($no_img==0)$re_gallery .= "</div>";
+		 		$no_img++;
+		 	}
+         }
+		 $re_gallery.='<script type="text/javascript">function ShadowboxSetup(){'.$gallery_setup.'}</script>';
+
+		 return $re_gallery;
 	}
 }

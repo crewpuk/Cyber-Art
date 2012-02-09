@@ -9,14 +9,17 @@
 ?>
 <script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.tools.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jquery.assets.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/s3Slider.js'?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'assets/shadowbox/shadowbox.js'?>" type="text/javascript"></script>
+
+<!-- Tidak Terpakai
 <script src="<?php echo $base_url_link.'js/jquery.easing.min.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.easing.compatibility.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.easing.1.3.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.lavalamp.min.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jquery.assets.js'?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/s3Slider.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery_popUp.js' ?>" type="text/javascript"></script>
-<script src="<?php echo $base_url_link.'js/jqueryP.js' ?>" type="text/javascript"></script>
+<script src="<?php echo $base_url_link.'js/jqueryP.js' ?>" type="text/javascript"></script>-->
 </head>
 
 <body>
@@ -26,7 +29,7 @@
 	
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
-		<ul class="lavaLampNoImage" id="3">
+		<ul class="navigation" id="3">
 			<li><?php echo anchor($base_url_link,'Beranda')?></li>
 			<li><?php echo anchor($base_url_link.'home/gallery/','Galeri')?></li>
 			<li><a href="#">Profil</a></li>

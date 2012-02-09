@@ -31,21 +31,23 @@ $(document).ready(function() {
         });
     });
     
-    $(function() {
-        $("#1, #2, #3").lavaLamp({
-            fx: "backout", 
-            speed: 700,
-            curr: 2,
-            /*click: function(event, menuItem) {
-                return false;
-            }*/
-        });
-    });
+    // $(function() {
+    //     $("#1, #2, #3").lavaLamp({
+    //         fx: "backout", 
+    //         speed: 700,
+    //         curr: 2,
+    //         /*click: function(event, menuItem) {
+    //             return false;
+    //         }*/
+    //     });
+    // });
     
     $('#slider1').s3Slider({
 		timeOut: 4000
     });
-    
-    
+    Shadowbox.init({
+        continuous: true,
+        overlayOpacity: 0.8
+    },ShadowboxSetup);
     
 });
