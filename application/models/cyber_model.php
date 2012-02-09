@@ -57,6 +57,7 @@ class Cyber_model extends CI_Model{
 	function terkait($kategori,$title_now){
 		return $this->db->query('SELECT title FROM `m_posting` 
 								WHERE `kategori` LIKE \'%'.$kategori.'%\' AND `title` != \''.$title_now.'\' LIMIT 0, 5 ')->result();
+
 	}
 	function join_table_komentar(){
 			$this->db->select('*');

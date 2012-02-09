@@ -2,9 +2,15 @@
 class Index extends CI_Controller{
 	function __construct(){
 		parent::__construct();
+<<<<<<< HEAD
 		$this->load->model(array('cyber_model'));
 		$this->load->helper(array("form"));
         $this->load->library(array('session','admin_panel'));
+=======
+		$this->load->model('cyber_model');
+		$this->load->helper("form");
+        $this->load->library('session');
+>>>>>>> 1305436cc1e2f10ffd3b878495257a1bc4444ca5
 	}
 	function index(){
 		$this->login();
