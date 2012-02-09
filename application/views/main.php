@@ -5,7 +5,7 @@
 <title>Cyber Art</title>
 <!------------------------- Link CSS  -------------------------->
 <?php
-foreach($css as $key)echo $key."\n";
+/*foreach($css)*/echo $css."\n";
 ?>
 <script src="<?php echo $base_url_link.'js/jquery.js'?>" type="text/javascript"></script>
 <script src="<?php echo $base_url_link.'js/jquery.tools.min.js'?>" type="text/javascript"></script>
@@ -71,7 +71,7 @@ foreach($css as $key)echo $key."\n";
                 
                 <?php
                 /************************** Status Halaman *******************************/
-                if(strtolower($status_halaman)=='beranda'||strtolower($status_halaman)=='posting'){
+                if(strtolower($status_halaman)=='beranda'){
                 ?>
             <!------------------------- Inner Navigation 1.1  -------------------------->
             	<div id="innerNav">
@@ -80,13 +80,40 @@ foreach($css as $key)echo $key."\n";
                         <div id="textHead">Berita Sebelumnya</div>
 					</div>
                     <?php foreach($berita as $b) { ?>
-                    <div id="inner" class="list"><ul><li><?php echo anchor('home/artikel/'.$b->id,$b->title) ?></li></ul></div>
+                    <div id="inner" class="list">
+                    	<ul>
+                        	<li>
+							<?php echo anchor('home/artikel/'.$b->id,$b->title) ?>
+                            </li>
+                        </ul>
+                    </div>
                     <?php } ?>
                 </div>
                 <?php
                 }
                 /************************** Status Halaman *******************************/
-                if(strtolower($status_halaman)=='beranda'){
+                if(strtolower($status_halaman)=='posting'){
+                ?>
+            <!------------------------- Inner Navigation 1.1  -------------------------->
+            	<div id="innerNav">
+                	<div id="innerHead">
+                    	<div id="checklist"></div>
+                        <div id="textHead">Berita Terkait</div>
+					</div>
+                    <?php foreach($terkait as $b) { ?>
+                    <div id="inner" class="list">
+                    	<ul>
+                        	<li>
+							<?php echo anchor('home/artikel/'.$b->id,$b->title) ?>
+                            </li>
+                        </ul>
+                    </div>
+                    <?php } ?>
+                </div>
+                <?php echo $vwKomen .'<br />'. $komentar_artikel;
+                }
+                /************************** Status Halaman *******************************/
+                elseif(strtolower($status_halaman)=='beranda'){
                 ?>
 			<!------------------------- Inner Navigation 1.2  -------------------------->
                 <div id="innerNav">

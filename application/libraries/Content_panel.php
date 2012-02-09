@@ -6,6 +6,40 @@ class CI_Content_panel{
         $this->CI =& get_instance();
     }
 	
+	function panel_komentar_artikel($id){
+		//komentar
+		$table  = 
+		'<form id="form1" name="form1" method="post" action="'.base_url().'home/artikel/'.$id.'/1">
+				<table width="390" border="0" cellpadding="3" cellspacing="3">
+			<tr>
+			<td width="61">Nama</td>
+			<td width="308">
+			  	<input type="text" name="nama" />
+			  	<input type="hidden" name="id_komentar" value="'.$id.'" />
+			</td>
+			</tr>
+			<tr>
+			  <td>Website</td>
+			  <td><input type="text" name="website" /></td>
+			</tr>
+			<tr>
+			  <td valign="top">Komentar</td>
+			  <td><textarea name="isi" cols="25" rows="5"></textarea></td>
+			</tr>
+			<tr>
+			  <td>&nbsp;</td>
+			  <td>&nbsp;</td>
+			</tr>
+			<tr>
+			  <td>&nbsp;</td>
+			  <td><input type="submit" value="Kirim" /></td>
+			</tr>
+		  </table>
+		</form>';
+		
+		return $table;		
+	}
+	
     function panel_counter(){
         // Counters
         $counter['number']=$this->CI->counter->get_counter();
@@ -114,9 +148,8 @@ class CI_Content_panel{
 	function panel_kat_berita(){
 		 $kategori = $this->CI->cyber_model->distinct('kategori','m_posting');
 		 	 foreach($kategori as $kat) {
-             $re_kategori .= '<div id="inner" class="list"><ul><li>';
-			 
-			 $re_kategori .= anchor('home/kategori/'.$kat->kategori,$kat->kategori);
+             $re_kategori .= '<div id="inner" class="list" ><ul><li class="fortip" title="Telah Dilihat '.$kat->merge.' kali">';
+			 $re_kategori .= anchor('home/kategori/'.$kat->dis,$kat->dis);
 			 $re_kategori .= '</li></ul></div>';
                  }
 		 return $re_kategori;
@@ -147,9 +180,10 @@ class CI_Content_panel{
 	function panel_komentar(){
 		$komentar = $this->CI->cyber_model->join_table_komentar();
 			foreach($komentar as $kom) {
-				$re_komentar .=  '<div id="inner" class="list"><ul><li>';
+				$re_komentar .=  '<div id="inner" class="list">
+									<ul class="fortip" title="'.substr($kom->isi,0,30).'..."><li>';
 				$re_komentar .=  anchor($kom->website,$kom->nama); 
-				$re_komentar .= ' Pada'.anchor('home/artikel/'.$kom->id,$kom->title);
+				$re_komentar .= ' Pada '.anchor('home/artikel/'.$kom->id,$kom->title);
 				$re_komentar .= '</li></ul></div>';	 
 			}
 		return $re_komentar;

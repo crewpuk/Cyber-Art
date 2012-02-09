@@ -266,3 +266,8 @@
 .shoutbox_pesan{
     padding: 3px 1px 3px 5px;
 }
+
+/******************** TAB **************************/
+.contentTab{
+	height: 150px;
+}
