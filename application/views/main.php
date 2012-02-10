@@ -29,14 +29,15 @@
 	
 <!------------------------- Navigation Header Menu  -------------------------->
 	<div id="navHead">
-		<ul class="navigation" id="3">
+		<!--<ul class="navigation" id="3">
 			<li><?php echo anchor($base_url_link,'Beranda')?></li>
 			<li><?php echo anchor($base_url_link.'home/gallery/','Galeri')?></li>
 			<li><a href="#">Profil</a></li>
 			<li><a href="#">E-Application</a></li>
 			<li><a href="#">Program Studi</a></li>
 			<li><a href="#">Pendaftaran Online</a></li>	  
-        </ul> 
+        </ul> -->
+        <?php echo($navi);?>
     </div>
     <!------------------------- Banner  -------------------------->
     <div id="banner">

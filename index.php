@@ -32,12 +32,12 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'development':
-			error_reporting(E_ERROR);
+			//error_reporting(E_ERROR);
 		break;
 	
 		case 'testing':
 		case 'production':
-			error_reporting(0);
+			error_reporting(1);
 		break;
 
 		default:

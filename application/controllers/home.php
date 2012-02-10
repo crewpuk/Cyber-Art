@@ -35,6 +35,7 @@ class Home extends CI_Controller{
 		$data['download'] = $this->content_panel->panel_download();
 		$data['agenda'] = $this->content_panel->panel_agenda();
 		$data['gallery'] = $this->content_panel->panel_gallery();
+		$data['navi'] = $this->content_panel->panel_navigation_menu();
         
         //////// Content
         $data['content'] = '';

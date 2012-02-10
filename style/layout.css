@@ -70,12 +70,13 @@
 	-khtml-border-radius:4px;
 	border-radius:4px;
 	
-	-moz-box-shadow:0 0 3px #06F;
+/*	-moz-box-shadow:0 0 3px #06F;
 	-webkit-box-shadow:0 0 3px #06F;
 	-o-box-shadow:0 0 3px #06F;
 	-ms-box-shadow:0 0 3px #06F;
 	-khtml-box-shadow:0 0 3px #06F;
 	box-shadow:0 0 3px #06F;
+	border: 1px solid #9cc4ff;*/
 	
 	width:47%;
 	float:left;
@@ -106,12 +107,14 @@
 	-khtml-border-radius:4px;
 	border-radius:4px;
 	
-	-moz-box-shadow:0 0 3px #06F;
+/*	-moz-box-shadow:0 0 3px #06F;
 	-webkit-box-shadow:0 0 3px #06F;
 	-o-box-shadow:0 0 3px #06F;
 	-ms-box-shadow:0 0 3px #06F;
 	-khtml-box-shadow:0 0 3px #06F;
-	box-shadow:0 0 3px #06F;
+	box-shadow:0 0 3px #06F;*/
+
+	border: 1px solid #9cc4ff;
 	
 	margin-bottom:20px;
 }
