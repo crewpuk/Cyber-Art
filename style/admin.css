@@ -5,3 +5,4 @@ a{ text-decoration:none; color:#000; }
 a:hover{ text-decoration:underline; }
 input,select,textarea{ padding:3px; border:solid 1px #555; }
 input:focus{ border:solid 1px #FC0;  }
+hr{ border:solid 2px #555; }

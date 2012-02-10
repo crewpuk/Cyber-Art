@@ -72,7 +72,7 @@ class Index extends CI_Controller{
 						<div id="textHead">Menu Admin</div>
 					</div>
 					<div id="inner" class="list">
-						<table width="374" height="204" border="0" cellpadding="3" cellspacing="3">
+						<table width="350" height="204" border="0" cellpadding="3" cellspacing="3">
 						  <tr>
 							<td width="152" height="23">
 							<a href="'.base_url().'admin/index/admin/home">Master Posting</a></td>
@@ -114,7 +114,7 @@ class Index extends CI_Controller{
 				</div>
 			</div>
 			<div id="nav1" style="width:72%; overflow:visible;">
-				<div id="innerNav">
+				<div id="innerNav" style="padding:15px;">
 					'.$PAGE.'
 				</div>
 			</div>');
@@ -133,7 +133,7 @@ class Index extends CI_Controller{
 				*/
         }
         else{
-            redirect('admin/index/login');
+            redirect('admin/index');
         }
 	}
 }

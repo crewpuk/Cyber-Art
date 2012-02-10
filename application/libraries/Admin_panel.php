@@ -8,7 +8,8 @@ class CI_Admin_panel{
 	
 	function tbl_input_posting(){
 		$posting = $this->CI->cyber_model->get_all_data('m_posting',0,5);
-		$table = '<table width="50%" border="1" cellspacing="0" cellpadding="5">
+		$table = '<h2>Artikel</h2><hr />';
+		$table .= '<table width="100%" border="1" cellspacing="0" cellpadding="5">
 					<tr>
 					  <th>Nomor</th>
 					  <th>Tanggal</th>
@@ -22,14 +23,16 @@ class CI_Admin_panel{
 		$i = 0;
 		foreach($posting as $p){
 		$i++;
+		$subText = substr($p->isi,0,150);
+		$someText = explode(' ',substr($p->isi,150,200));
 		$table .=   '<tr>
-					  <td>'.$i.'</td>
+					  <td align="center">'.$i.'</td>
 					  <td>'.$p->tanggal.'</td>
 					  <td>'.$p->title.'</td>
-					  <td>'.$p->isi.'</td>
+					  <td align="justify">'.nl2br($subText.$someText[0]).' ...</td>
 					  <td>'.$p->kategori.'</td>
-					  <td>'.$p->image.'</td>
-					  <td>'.$p->view.'</td>
+					  <td><img src="'.base_url().'images/art/'.$p->image.'" width="75" height="50" /></td>
+					  <td align="center">'.$p->view.'</td>
 					  <td align="center"><img src="'.base_url().'images/ubah.png" width="16" height="16"></td>
 					  <td align="center"><img src="'.base_url().'images/hapus.png" width="16" height="16"></td>
 					</tr>';
@@ -40,43 +43,87 @@ class CI_Admin_panel{
 	
 	function tbl_input_admin(){
 		$table = '
-				Halaman Admin
+				<h2>Halaman Admin</h2><hr />
 				';
 		return $table;
 	}
 	function tbl_input_download(){
-		$table = '
-			adsafafsadsadsd ad
-		';	
+		$download = $this->CI->cyber_model->get_all_data('m_download',0,5);
+		$table = '<h2>Download</h2><hr />';	
+		$table .= '<table width="100%" border="1" cellspacing="0" cellpadding="5">
+					<tr>
+					  <th>Nomor</th>
+					  <th>Judul</th>
+					  <th>Letak File</th>
+					  <th>Hit</th>
+					  <th>Tindakan</th>
+					</tr>';
+	   $i=0;
+	   foreach($download as $d){
+	   $i++;
+	   $table .='	<tr>
+					  <td align="center">'.$i.'</td>
+					  <td>'.$d->title.'</td>
+					  <td>'.base_url().'temp/download/'.$d->doc.'</td>
+					  <td align="center">'.$d->view.'</td>
+					  <td align="center"><img src="'.base_url().'images/hapus.png" width="16" height="16"></td>
+					</tr>';
+	   }
+	   $table .='</table>';
 		return $table;
 	}
 	function tbl_input_galery(){
 		$table = '
-			galery page
+			<h2>Galeri</h2><hr />
 		';	
 		return $table;
 	}
 	function tbl_input_testimoni(){
-		$table = '
-			testimoni page
-		';	
+		$testimoni = $this->CI->cyber_model->get_all_data('m_testimoni',0,5);
+		$table = '<h2>Testimonial</h2><hr />';
+		$table .= '<table width="100%" border="1" cellspacing="0" cellpadding="5">
+					  <tr>
+						<th>Nomor</th>
+						<th>Nama</th>
+						<th>Jabatan</th>
+						<th>Komentar</th>
+						<th>Foto</th>
+						<th>Tanggal Testimoni</th>
+						<th colspan="2">Tindakan</th>
+					  </tr>';
+		$i = 0;
+		foreach($testimoni as $tes){
+		$i++;
+		$table .= '
+					  <tr>
+						<td align="center">'.$i.'</td>
+						<td>'.$tes->nama.'</td>
+						<td>'.$tes->jabatan.'</td>
+						<td>'.$tes->komentar.'</td>
+						<td><img src="'.base_url().'images/testi/'.$tes->photo.'" width="75" height="50" /></td>
+						<td>'.$tes->tanggal.'</td>
+						<td align="center"><img src="'.base_url().'images/ubah.png" width="16" height="16"></td>
+						<td align="center"><img src="'.base_url().'images/hapus.png" width="16" height="16"></td>
+					  </tr>';
+		}
+  		$table .= '</table>';	
 		return $table;
 	}
 	function tbl_input_agenda(){
 		$table = '
-			agenda page
+			<h2>Agenda</h2><hr />
 		';	
 		return $table;
 	}
 	function tbl_input_shout(){
 		$table = '
-			shout page
+			<h2>Shoutbox</h2><hr />
 		';	
 		return $table;
 	}
 	function tbl_input_komentar(){
 		$table = '
-			komentar page
+			<h2>Komentar</h2><hr />
 		';	
 		return $table;
 	}
