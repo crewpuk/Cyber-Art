@@ -3,8 +3,8 @@ class Index extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model(array('cyber_model'));
-		$this->load->helper(array("form","css","html"));
-        $this->load->library(array('session','admin_panel'));
+		$this->load->helper(array('form','css','html'));
+        $this->load->library(array('table','session','admin_panel'));
 	}
 	function index(){
 		$this->login();
@@ -25,7 +25,9 @@ class Index extends CI_Controller{
         redirect("admin/index/login");
 	}
 	function cek(){
-		$a=$this->cyber_model->login($_POST['username'],$_POST['password']);
+		$username = mysql_real_escape_string($_POST['username']);
+		$password = mysql_real_escape_string($_POST['password']);
+		$a=$this->cyber_model->login($username,$password);
 		$id = $a['id'];
 		if($a){
             redirect('admin/index/admin');
@@ -72,7 +74,7 @@ class Index extends CI_Controller{
 						<div id="textHead">Menu Admin</div>
 					</div>
 					<div id="inner" class="list">
-						<table width="374" height="204" border="0" cellpadding="3" cellspacing="3">
+						<table width="350" height="204" border="0" cellpadding="3" cellspacing="3">
 						  <tr>
 							<td width="152" height="23">
 							<a href="'.base_url().'admin/index/admin/home">Master Posting</a></td>
@@ -114,7 +116,7 @@ class Index extends CI_Controller{
 				</div>
 			</div>
 			<div id="nav1" style="width:72%; overflow:visible;">
-				<div id="innerNav">
+				<div id="innerNav" style="padding:15px;">
 					'.$PAGE.'
 				</div>
 			</div>');
@@ -133,7 +135,7 @@ class Index extends CI_Controller{
 				*/
         }
         else{
-            redirect('admin/index/login');
+            redirect('admin/index');
         }
 	}
 }
