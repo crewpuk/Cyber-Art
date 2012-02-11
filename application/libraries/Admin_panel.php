@@ -7,8 +7,43 @@ class CI_Admin_panel{
     }
 	
 	function tbl_input_posting(){
-		$posting = $this->CI->cyber_model->get_all_data('m_posting',0,5);
 		$table = '<h2>Artikel</h2><hr />';
+		$table .= '<form method="post">
+					<input type="submit" name="tambahPosting" value="Tambah" />
+				   </form>';
+		/***************** Form Input Posting ************************/
+		if(isset($_POST['tambahPosting'])){
+			$table .= form_open();
+			$tmpl = array('table_open','<table cellpadding="5" cellspacing="0" width="100%"');
+			$list = array(
+			'Judul',form_input('judul'),
+			'Isi',form_textarea('isi'),
+			'Kategori',form_input('kategori'),
+			'Gambar',form_upload('gambar'),
+			'',form_submit('simpan_posting','Simpan').form_reset('reset','Reset')
+			);
+			$new_list = $this->CI->table->make_columns($list,2);
+			$this->CI->table->set_template($tmpl);
+			$table .= $this->CI->table->generate($new_list);
+			$table .= form_close();
+		}
+		
+		if(isset($_POST['simpan_posting'])){
+				$set = array(
+				'id_komentar'=>0,
+				'tanggal'=>date('Y-m-d'),
+				'title'=>$_POST['judul'],
+				'isi'=>$_POST['isi'],
+				'kategori'=>$_POST['kategori'],
+				'image'=>$_POST['gambar'],
+				'view'=>0
+				);
+				$simpan = $this->CI->cyber_model->insert('m_posting',$set);
+				if($simpan){ echo "Berhasil"; }else{ echo "Gagal"; }
+			}
+		
+		/***************** Detail Posting ************************/
+		$posting = $this->CI->cyber_model->get_all_data('m_posting',0,5);
 		$table .= '<table width="100%" border="1" cellspacing="0" cellpadding="5">
 					<tr>
 					  <th>Nomor</th>
@@ -33,11 +68,14 @@ class CI_Admin_panel{
 					  <td>'.$p->kategori.'</td>
 					  <td><img src="'.base_url().'images/art/'.$p->image.'" width="75" height="50" /></td>
 					  <td align="center">'.$p->view.'</td>
-					  <td align="center"><img src="'.base_url().'images/ubah.png" width="16" height="16"></td>
-					  <td align="center"><img src="'.base_url().'images/hapus.png" width="16" height="16"></td>
+					  <td align="center"><a href="'.base_url().'admin/index/admin/home/ubah_posting"><img src="'.base_url().'images/ubah.png" width="16" height="16"></a></td>
+					  <td align="center"><a href="'.base_url().'admin/index/admin/home/hapus_posting"><img src="'.base_url().'images/hapus.png" width="16" height="16"></a></td>
 					</tr>';
 		}
 		$table .='</table>';
+		
+		if($page=="ubah_posting"){ echo "Ubah"; }
+		elseif($page=="hapus_posting"){ echo "Hapus"; }
 		return $table;
 	}
 	

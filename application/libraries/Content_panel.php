@@ -80,8 +80,12 @@ class CI_Content_panel{
         $data['shoutbox'].="</div>";
         $data['shoutbox'].=form_open('form_proses/form/shoutbox');
         $data['shoutbox'].=form_hidden('back',str_replace('index.php/','',$_SERVER['PHP_SELF']));
-        $tmpl = array('table_open'=>'<table border="0" cellpadding="3" cellspacing="0" width="100%" class="shoutbox_table">');
-        $list = array('Nama',form_input(array('name'=>'nama','style'=>'width: 120px;')),'Website',form_input(array('name'=>'url','style'=>'width: 120px;')),'Pesan',form_textarea(array('name'=>'pesan','rows'=>'3','style'=>'width: 120px;')));
+        $tmpl = array(
+		'table_open'=>'<table border="0" cellpadding="3" cellspacing="0" width="100%" class="shoutbox_table">');
+        $list = array(
+		'Nama',form_input(array('name'=>'nama','style'=>'width: 120px;')),
+		'Website',form_input(array('name'=>'url','style'=>'width: 120px;')),
+		'Pesan',form_textarea(array('name'=>'pesan','rows'=>'3','style'=>'width: 120px;')));
         $new_list = $this->CI->table->make_columns($list, 2);
         $this->CI->table->set_template($tmpl);
         $data['shoutbox'].=$this->CI->table->generate($new_list);

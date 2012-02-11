@@ -3,8 +3,8 @@ class Index extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model(array('cyber_model'));
-		$this->load->helper(array("form","css","html"));
-        $this->load->library(array('session','admin_panel'));
+		$this->load->helper(array('form','css','html'));
+        $this->load->library(array('table','session','admin_panel'));
 	}
 	function index(){
 		$this->login();
@@ -25,7 +25,9 @@ class Index extends CI_Controller{
         redirect("admin/index/login");
 	}
 	function cek(){
-		$a=$this->cyber_model->login($_POST['username'],$_POST['password']);
+		$username = mysql_real_escape_string($_POST['username']);
+		$password = mysql_real_escape_string($_POST['password']);
+		$a=$this->cyber_model->login($username,$password);
 		$id = $a['id'];
 		if($a){
             redirect('admin/index/admin');

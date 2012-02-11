@@ -3,6 +3,16 @@
 
 a{ text-decoration:none; color:#000; }
 a:hover{ text-decoration:underline; }
-input,select,textarea{ padding:3px; border:solid 1px #555; }
-input:focus{ border:solid 1px #FC0;  }
+input,select,textarea{ padding:3px; border:thin 1px #555; }
+input[type=button],[type=submit],[type=reset]{
+	padding:7px;
+	background:#09F;
+	color:#FFF;
+	cursor:pointer;
+	border-radius:3px;
+}
+input[type=button]:hover,[type=submit]:hover,[type=reset]:hover{
+background:#0CF;
+}
+input:focus{ border:thin 1px #FF3;  }
 hr{ border:solid 2px #555; }
