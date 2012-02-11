@@ -252,16 +252,16 @@ class CI_Content_panel{
 		foreach($nvmn_0 as $nvmn){
 			$link_0=str_replace( array('[main]','[home]') , array(base_url(),base_url().'home/'), $nvmn->url);
 			$re .= '<li><a href="'.$link_0.'">'.$nvmn->title.'</a>';
-				$nvmn_c_state=(($this->CI->db->where('id_parent',$nvmn->id)->get('m_navigation_menu')->num_rows())>0)?true:false;
-				if($nvmn_c_state){
-					$re .= '<ul>';
-					$nvmn_child=$this->CI->db->where('id_parent',$nvmn->id)->get('m_navigation_menu')->result();
-					foreach($nvmn_child as $nvmn_c){
-						$link_c=str_replace( array('[main]','[home]') , array(base_url(),base_url().'home/'), $nvmn_c->url);
-						$re .= '<li><a href="'.$link_c.'">'.$nvmn_c->title.'</a></li>';
-					}
-					$re .= '</ul>';
-				}
+				// $nvmn_c_state=(($this->CI->db->where('id_parent',$nvmn->id)->get('m_navigation_menu')->num_rows())>0)?true:false;
+				// if($nvmn_c_state){
+				// 	$re .= '<ul>';
+				// 	$nvmn_child=$this->CI->db->where('id_parent',$nvmn->id)->get('m_navigation_menu')->result();
+				// 	foreach($nvmn_child as $nvmn_c){
+				// 		$link_c=str_replace( array('[main]','[home]') , array(base_url(),base_url().'home/'), $nvmn_c->url);
+				// 		$re .= '<li><a href="'.$link_c.'">'.$nvmn_c->title.'</a></li>';
+				// 	}
+				// 	$re .= '</ul>';
+				// }
 			$re .= '</li>';
 		}
 		$re .= '</ul>';
