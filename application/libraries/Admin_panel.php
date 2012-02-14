@@ -74,8 +74,9 @@ class CI_Admin_panel{
 		}
 		$table .='</table>';
 		
-		if($page=="ubah_posting"){ echo "Ubah"; }
+		if(isset($_GET["ubah_posting"])){ echo "Ubah"; }
 		elseif($page=="hapus_posting"){ echo "Hapus"; }
+		echo $_GET['d'];
 		return $table;
 	}
 	
