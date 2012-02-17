@@ -232,7 +232,7 @@ class CI_Content_panel{
 			 	$no_img=0;
 			}
 		 	if($nm_album==$g->nama_album){
-		 		$strrpl_nama_album = str_replace(' ', '_', $g->nama_album);
+		 		$strrpl_nama_album = str_replace(array(' ','.','#'), '_', $g->nama_album);
 		 		if($no_img>0)$h=' hidden';
 		 		if($no_img==0)$re_gallery.="<div class='archivesbox' align='center'>";
 		 		$re_gallery.='<a class="'.$strrpl_nama_album.$h.'" title="'.$g->deskripsi.'" href="'.base_url().'images/gallery/'.$g->file.'">';

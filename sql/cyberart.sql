@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Waktu pembuatan: 10. Februari 2012 jam 23:16
+-- Waktu pembuatan: 14. Februari 2012 jam 23:14
 -- Versi Server: 5.0.45
 -- Versi PHP: 5.2.3
 
@@ -106,8 +106,9 @@ INSERT INTO `m_counter` VALUES ('2012-01-19', '127.0.0.1', 4);
 INSERT INTO `m_counter` VALUES ('2012-01-27', '127.0.0.1', 1);
 INSERT INTO `m_counter` VALUES ('2012-01-28', '127.0.0.1', 0);
 INSERT INTO `m_counter` VALUES ('2012-01-30', '127.0.0.1', 1);
-INSERT INTO `m_counter` VALUES ('2012-02-09', '127.0.0.1', 91);
-INSERT INTO `m_counter` VALUES ('2012-02-10', '127.0.0.1', 6);
+INSERT INTO `m_counter` VALUES ('2012-02-09', '127.0.0.1|0.0.0.0', 120);
+INSERT INTO `m_counter` VALUES ('2012-02-12', '0.0.0.0', 4);
+INSERT INTO `m_counter` VALUES ('2012-02-14', '0.0.0.0', 7);
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ CREATE TABLE `m_his` (
   `time` time NOT NULL,
   `time_u` bigint(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=91 ;
 
 -- 
 -- Dumping data untuk tabel `m_his`
@@ -254,8 +255,18 @@ INSERT INTO `m_his` VALUES (75, '127.0.0.1', '2012-02-09', '15:50:33', 132877743
 INSERT INTO `m_his` VALUES (76, '127.0.0.1', '2012-02-09', '16:36:29', 1328780189);
 INSERT INTO `m_his` VALUES (77, '127.0.0.1', '2012-02-09', '16:41:50', 1328780510);
 INSERT INTO `m_his` VALUES (78, '127.0.0.1', '2012-02-09', '17:06:08', 1328781968);
-INSERT INTO `m_his` VALUES (79, '127.0.0.1', '2012-02-10', '17:54:47', 1328871287);
-INSERT INTO `m_his` VALUES (80, '127.0.0.1', '2012-02-10', '22:17:29', 1328887049);
+INSERT INTO `m_his` VALUES (79, '0.0.0.0', '2012-02-09', '19:54:54', 1328792094);
+INSERT INTO `m_his` VALUES (80, '0.0.0.0', '2012-02-09', '20:15:28', 1328793328);
+INSERT INTO `m_his` VALUES (81, '0.0.0.0', '2012-02-09', '20:33:47', 1328794427);
+INSERT INTO `m_his` VALUES (82, '0.0.0.0', '2012-02-09', '20:48:04', 1328795284);
+INSERT INTO `m_his` VALUES (83, '0.0.0.0', '2012-02-09', '20:57:15', 1328795835);
+INSERT INTO `m_his` VALUES (84, '0.0.0.0', '2012-02-09', '21:04:19', 1328796259);
+INSERT INTO `m_his` VALUES (85, '0.0.0.0', '2012-02-09', '21:09:29', 1328796569);
+INSERT INTO `m_his` VALUES (86, '0.0.0.0', '2012-02-09', '21:15:44', 1328796944);
+INSERT INTO `m_his` VALUES (87, '0.0.0.0', '2012-02-09', '21:23:17', 1328797397);
+INSERT INTO `m_his` VALUES (88, '0.0.0.0', '2012-02-12', '05:50:32', 1329000632);
+INSERT INTO `m_his` VALUES (89, '0.0.0.0', '2012-02-12', '06:17:49', 1329002269);
+INSERT INTO `m_his` VALUES (90, '0.0.0.0', '2012-02-14', '20:14:27', 1329225267);
 
 -- --------------------------------------------------------
 
@@ -314,22 +325,42 @@ INSERT INTO `m_navigation_menu` VALUES (8, 4, 'Jaringan', '#');
 
 CREATE TABLE `m_posting` (
   `id` int(10) NOT NULL auto_increment,
-  `id_komentar` int(10) NOT NULL,
   `tanggal` date NOT NULL,
   `title` varchar(50) NOT NULL,
   `isi` text NOT NULL,
   `kategori` varchar(25) NOT NULL,
-  `image` varchar(50) NOT NULL,
+  `image` varchar(50) default NULL,
   `view` int(5) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 -- 
 -- Dumping data untuk tabel `m_posting`
 -- 
 
-INSERT INTO `m_posting` VALUES (1, 0, '2011-12-29', 'Advance Blogging', 'Pada Postingan kali ini, saya mau sedikit share tentang advanced blog yang pernah saya sharing juga melalui talkshow di Radio Trijaya FM beberapa waktu yang lalu. Semoga berguna. \r\nA. Sekilas tentang blog\r\nBlog adalah kependekan dari Weblog, istilah yang pertama kali digunakan oleh Jorn Barger pada bulan Desember 1997. menggunakan istilah Weblog untuk menyebut kelompok website pribadi yang selalu diupdate secara kontinyu dan berisi link-link ke website lain yang mereka anggap menarik disertai dengan komentar-komentar mereka sendiri. Secara garis besar, Weblog dapat dirangkum sebagai mini website pribadi yang memungkinkan para pembuatnya menampilkan berbagai jenis isi pada web dengan mudah, seperti karya tulis, kumpulan link internet, dokumen-dokumen (file-file Word,PDF,dll), gambar ataupun multimedia.\r\nB. Jenis-Jenis Blog\r\nSama seperti media pada umumnya, informasi yang dimuat dalam sebuah blog biasanya mengambil topik tertentu sebagai pokok bahasan, ada beberapa jenis blog menurut isi/konten yang terdapat didalamnya, antara lain: Blog politik, Blog pribadi, Blog kesehatan, Blog sastra, Blog perjalanan, Blog riset, Blog hukum, Blog media, Blog pendidikan, Blog bisnis dan sebagainya.\r\nC. Manfaat Blog secara umum\r\nKnowledge Sharing. Blog bisa menjadi sangat bermanfaat jika diisi dengan knowledge-knowledge yang bermanfaat buat orang banyak. Dengan blog, semua orang bisa dengan mudah mengeksternalisasikan knowledge yang dimilikinya ke publik. Sehingga dengan begitu knowledge yang dimilikinya itu bisa dishare ke orang lain dan menjadi bermanfaat buat orang yang membutuhkannya.\r\nBridge Blogging. Blog dapat dimanfaatkan sebagai jembatan informasi untuk menggambarkan kondisi suatu negara dalam bahasa global (seperti Inggris), sehingga dapat menjembatani orang lain untuk mendapat informasi dengan lebih akurat.\r\nGround Voice, Suara Akar Rumput. Dengan blog, orang dapat dengan leluasa menuliskan pendapatnya tentang suatu hal. Opini-opini yang muncul kemudian bisa menjadi sebuah opini yang kuat yang mampu menunjukkan bagaimana sebenarnya pendapat masyarakat tentang suatu hal.\r\nIdea Incubation. Biasanya jika seseorang mempunyai suatu ide, ide tersebut tidak langsung direalisasikan. biasanya ide yang muncul dalam otaknya terpendam sekian lama untuk proses pematangan ide. seiring berjalannya waktu, dia akan menambahkan konsep-konsep pelengkap dari idenya itu dalam tulisan/blog.\r\nMedia Bisnis. Selain digunakan untuk kepentingan personal, blog juga dapat digunakan sebagai media untuk menjembatani suatu kegiatan bisnis (blog bisnis) atau mendapatkan penghasilan tambahan.\r\nD. Advance Blog\r\nAdvance Blog sendiri tidak lain merupakan suatu upaya untuk menjadikan sebuah blog memiliki fungsi yang lebih komplit dibanding blog standard baik dalam fungsi kolaborasi seperti fitur komentar, shoutbox maupun dalam hal tampilan. Advance Blog biasa juga dikenal dengan istilah Profesional Blog.\r\nE. Aspek Penting dari Advance Blog\r\nUntuk membuat Blog menjadi lebih advance/profesional, beberapa aspek yang perlu diperhatikan adalah:\r\n1. Tampilan, sebuah blog akan terlihat tidak biasa/lebih advance terutama dipengaruhi oleh tampilannya yang tidak biasa/standard.\r\n2. Tema, menentukan tema tertentu untuk dibahas dalam blog akan membuat blog lebih spesifik dalam menyampaikan informasi.\r\n3. Isi Blog, selain tampilan, kualitas isi tulisan maupun informasi dalam sebuah blog sangat mempengaruhi tingkat kunjungan blog yang bersangkutan.\r\n4. Fitur, sebuah blog akan terlihat lebih advance jika didalamnya terdapat fitur-fitur pendukung yang dapat membuat blog menjadi lebih menarik dan interaktif.\r\n5. SEO(Search Engine Optimation), populer tidaknya suatu blog juga dipengaruhi oleh cara kita mengenalkan blog pada mesin pencari(seperti google, yahoo atau bing).\r\nF. Langkah-langkah membuat Advance Blog\r\nUntuk menjadikan sebuah blog menjadi lebih advance, beberapa langkahnya antara lain:\r\n1. Kualitas Tampilan. Untuk membuat blog menjadi lebih advance kita dapat mulai dengan memperbaharui/update tampilan/template/themes yang menarik untuk blog kita, hal ini dapat dilakukan dengan mencari template gratis melalui internet atau dengan memperbaiki/menambahkan template yang sudah ada (dibutuhkan pemahaman HTML/PHP). Usahakan sedapat mungkin mensinkronkan tampilan dengan tema utama dari blog.\r\n\r\n2. Tema. Langkah berikutnya adalah dengan menentukan suatu tema untuk blog anda. Tema layaknya seperti sebuah identitas, dengan menjadikan blog menjadi spesifik membahas tema tertentu maka akan menjadikan blog anda semakin mudah menjadi bahan referensi untuk tema tertentu bagi para pembaca. Terlalu banyak tema inti yang dibahas justru akan membuat blog anda kehilangan identitas utama.\r\n3. Isi Blog. Memperhatikan isi blog yang kita tulis juga dapat menjadikan blog menjadi lebih menarik untuk dibaca, perhatikan tata cara penulisan, sumber tulisan dan informasi lain seperti gambar ataupun link terkait yang dapat membuat blog anda lebih menarik. Jangan sembarang mencopas(copy paste) tulisan orang lain tanpa menyebutkan sumber yang jelas, karena selain melanggar hak cipta tulisan, juga justru akan membingungkan pembaca jika tulisan tidak sesuai dengan identitas asli blog anda. Selain itu kontinuitas anda dalam memperbaharui isi blog juga dapat menjadikan blog anda semakin populer.\r\n4. Fitur. Melengkapi blog dengan fitur menarik seperti komentar, galeri foto, animasi dan kotak saran/buku tamu dapat menjadikan blog anda terlihat lebih profesional. Anda dapat lakukan dengan menambahkan Gadget/Widget tambahan yang terintegrasi dengan blog anda atau mencari widget tambahan yang dapat anda peroleh dari Internet.\r\n5. SEO. Poin terakhir yang juga sangat menentukan popularitas blog anda adalah bagaimana cara anda mengenalkan blog anda pada mesin pencari populer seperti Google atau Yahoo, karena hampir 80% pengguna internet menggunakan mesin pencari sebagai fasilitas awal untuk mencari informasi. Beberapa trik untuk SEO dapat dengan mudah anda pelajari dari buku atau Internet untuk dikembangkan dan diterapkan dalam blog anda.\r\n\r\nSumber : http://bangdanu.wordpress.com/2011/09/16/advanced-blog/', 'Artikel', 'seo.png', 6);
-INSERT INTO `m_posting` VALUES (2, 0, '2011-12-29', 'Membasmi Virus Sality', 'Tulisan kali ini judulnya mungkin agak sadis ya, tapi pemilihan judul kali ini didasari karena kejengkelan dengan penemuan virus di komputer kantor yang saya gunakan sehari-hari. Virus apakah itu? Yap sesuai judul tulisan diatas, virus yang saya temukan dan dideteksi anti virus Smadav dan AVG yg terpasang di komputer saya adalah Sality, tepatnya Sality.101.\r\nNah yang membuat jengkel lagi adalah ternyata kedua antivirus yg saya gunakan hanya dapat menghapus ketika virus terdeteksi dan tidak memperbaiki registry dan autorun.inf yang diinfeksi virus ini, akibatnya saya harus mengutak-atik registry secara manual. Oleh karena itu saya mencari alternatif penyembuhan alternatif lain, tapi yang jelas bukan dukun ya. \r\nSetelah browsing sana-sini, akhirnya saya mendapati sebuah alternatif penyembuhan yang sudah saya buktikan efektif mengatasi Sality.101, nama aplikasi tersebut adalah Salitykiller (cocok kan namanya sebagai pembunuh gratisan?)  . Aplikasi keluaran Kaspersky Lab ini mencari dan memperbaiki file yang terinfeksi dengan lebih baik.\r\nCara penggunaannya juga sangat mudah, tinggal di ekstrak, kemudian jalankan Salitykiller.exe yang terdapat didalamnya, selanjutnya biarkan aplikasi ini bekerja hingga semua komponen registry dan file di-scan dengan sempurna dan secara otomatis akan diperbaiki oleh antivirus ini.\r\n\r\nSumber : http://bangdanu.wordpress.com', 'Artikel', 'salitykiller.jpg', 5);
+INSERT INTO `m_posting` VALUES (2, '2011-12-29', 'Membasmi Virus Sality', 'Tulisan kali ini judulnya mungkin agak sadis ya, tapi pemilihan judul kali ini didasari karena kejengkelan dengan penemuan virus di komputer kantor yang saya gunakan sehari-hari. Virus apakah itu? Yap sesuai judul tulisan diatas, virus yang saya temukan dan dideteksi anti virus Smadav dan AVG yg terpasang di komputer saya adalah Sality, tepatnya Sality.101.\r\nNah yang membuat jengkel lagi adalah ternyata kedua antivirus yg saya gunakan hanya dapat menghapus ketika virus terdeteksi dan tidak memperbaiki registry dan autorun.inf yang diinfeksi virus ini, akibatnya saya harus mengutak-atik registry secara manual. Oleh karena itu saya mencari alternatif penyembuhan alternatif lain, tapi yang jelas bukan dukun ya. \r\nSetelah browsing sana-sini, akhirnya saya mendapati sebuah alternatif penyembuhan yang sudah saya buktikan efektif mengatasi Sality.101, nama aplikasi tersebut adalah Salitykiller (cocok kan namanya sebagai pembunuh gratisan?)  . Aplikasi keluaran Kaspersky Lab ini mencari dan memperbaiki file yang terinfeksi dengan lebih baik.\r\nCara penggunaannya juga sangat mudah, tinggal di ekstrak, kemudian jalankan Salitykiller.exe yang terdapat didalamnya, selanjutnya biarkan aplikasi ini bekerja hingga semua komponen registry dan file di-scan dengan sempurna dan secara otomatis akan diperbaiki oleh antivirus ini.\r\n\r\nSumber : http://bangdanu.wordpress.com', 'Artikel', 'salitykiller.jpg', 4);
+INSERT INTO `m_posting` VALUES (3, '2012-02-14', 'Arya Kusuma', 'au dah tuh si Arya yg buat.wwkwkwkwk', 'Artkel', 'crewpukLogoJadi.png', 2);
+INSERT INTO `m_posting` VALUES (4, '2012-02-14', 'Arya Kusuma', 'au dah tuh si Arya yg buat.wwkwkwkwk', 'Artkel', 'crewpukLogoJadi.png', 1);
+INSERT INTO `m_posting` VALUES (5, '2012-02-14', 'rian', 'ee', 'rian', 'gambar.jpg', 0);
+INSERT INTO `m_posting` VALUES (6, '2012-02-14', 'judul', 'isi', 'artikel', NULL, 0);
+INSERT INTO `m_posting` VALUES (7, '2012-02-14', 'sdjaskdj', 'dsajkdas', 'dsjkadlas', NULL, 0);
+INSERT INTO `m_posting` VALUES (8, '2012-02-14', 'jsdjksjd', 'djslkjdlaj', 'dsjkadjalskj', NULL, 0);
+INSERT INTO `m_posting` VALUES (9, '2012-02-14', 'rianr', 'rianr', 'rianr', NULL, 0);
+INSERT INTO `m_posting` VALUES (10, '2012-02-14', 'a', 'a', 'a', NULL, 0);
+INSERT INTO `m_posting` VALUES (11, '2012-02-14', 'sas', 'sdasd', 'dsad', NULL, 0);
+INSERT INTO `m_posting` VALUES (12, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
+INSERT INTO `m_posting` VALUES (13, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
+INSERT INTO `m_posting` VALUES (14, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
+INSERT INTO `m_posting` VALUES (15, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
+INSERT INTO `m_posting` VALUES (16, '2012-02-14', 'Arya Kusuma', 'bau', 'apek', '406258_341142615896311_100000017276307_1410053_173', 0);
+INSERT INTO `m_posting` VALUES (17, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (18, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (19, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (20, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (21, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (22, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (23, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (24, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
 
 -- --------------------------------------------------------
 

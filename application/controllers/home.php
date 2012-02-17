@@ -47,17 +47,19 @@ class Home extends CI_Controller{
 	    $month = substr($dateDB,4,3);
 	    $day = substr($dateDB,8);
 	    $date = $day.$month.'-'.$year;
-	    $img = array(
-	    "src" => "images/art/".$a->image."",
-	    "width" => "300",
-	    "height" => "200",
-	    "title" => "".$a->image."",
-	    "alt" => "".$a->image.""
-	    );
+	    $img='';
+	    if($a->image!='' OR $a->image!==NULL){
+    	    $img = array(
+    	    "src" => "images/art/".$a->image."",
+    	    "style" => "maax-width:300px;max-height:200px;",
+    	    "alt" => "".$a->image.""
+    	    );
+    	    $img=img($img).br(2);
+	    }
         $data['content'] .= '
                 <div class="artHead">Posted On :'.$date.'</div>
                 <div class="artTitle">'.$a->title.br(2).'</div>
-                <div class="artImage">'.img($img).br(2).'</div>
+                <div class="artImage">'.$img.'</div>
                 <div class="artText">'.nl2br($subText.$someText[0]).'...</div><br />
                 <div class="rdMore">'.anchor('home/artikel/'.$a->id,'Selengkapnya').'</div>
                 <hr />';
@@ -148,17 +150,19 @@ class Home extends CI_Controller{
 	    $month = substr($dateDB,4,3);
 	    $day = substr($dateDB,8);
 	    $date = $day.$month.'-'.$year;
-	    $img = array(
-	    "src" => "images/art/".$art->image."",
-	    "width" => "300",
-	    "height" => "200",
-	    "title" => "".$art->image."",
-	    "alt" => "".$art->image.""
-	    );
+	    $img='';
+	    if($art->image!='' OR $art->image!==NULL){
+    	    $img = array(
+    	    "src" => "images/art/".$a->image."",
+    	    "style" => "maax-width:300px;max-height:200px;",
+    	    "alt" => "".$a->image.""
+    	    );
+    	    $img=img($img).br(2);
+	    }
         $data['content'] .= '
                 <div class="artHead">Posted On :'.$date.'</div>
                 <div class="artTitle">'.$art->title.br(2).'</div>
-                <div class="artImage">'.img($img).br(2).'</div>
+                <div class="artImage">'.$img.'</div>
                 <div class="artText">'.nl2br($art->isi).'</div><br />
                 <hr />';
         //////// End of Content
@@ -437,17 +441,19 @@ class Home extends CI_Controller{
 			$month = substr($dateDB,4,3);
 			$day = substr($dateDB,8);
 			$date = $day.$month.'-'.$year;
-			$img = array(
-					"src" => "images/art/".$a->image."",
-					"width" => "300",
-					"height" => "200",
-					"title" => "".$a->image."",
-					"alt" => "".$a->image.""
-			);
+		    $img='';
+		    if($a->image!='' OR $a->image!==NULL){
+	    	    $img = array(
+	    	    "src" => "images/art/".$a->image."",
+	    	    "style" => "maax-width:300px;max-height:200px;",
+	    	    "alt" => "".$a->image.""
+	    	    );
+	    	    $img=img($img).br(2);
+		    }
         $data['content'] .= '
                 <div class="artHead">Posted On :'.$date.'</div>
                 <div class="artTitle">'.$a->title.br(2).'</div>
-                <div class="artImage">'.img($img).br(2).'</div>
+                <div class="artImage">'.$img.'</div>
                 <div class="artText">'.nl2br($subText.$someText[0]).'...</div><br />
                 <div class="rdMore">'.anchor('home/artikel/'.$a->id,'Selengkapnya').'</div>
                 <hr />';
