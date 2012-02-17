@@ -123,8 +123,9 @@ class CI_Admin_panel{
 		$table .='</table>';
 		$table .= '<script type="text/javascript">function ShadowboxSetup(){'.$gallery_setup.'}</script>';
 		
-		if($page=="ubah_posting"){ echo "Ubah"; }
+		if(isset($_GET["ubah_posting"])){ echo "Ubah"; }
 		elseif($page=="hapus_posting"){ echo "Hapus"; }
+		echo $_GET['d'];
 		return $table;
 	}
 	

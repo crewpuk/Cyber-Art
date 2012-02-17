@@ -9,7 +9,11 @@ input[type=button],[type=submit],[type=reset]{
 	background:#09F;
 	color:#FFF;
 	cursor:pointer;
-	border-radius:3px;
+	border-radius:0 0 17px 0;
+	-moz-border-radius:0 0 17px 0;
+	-o-border-radius:0 0 17px 0;
+	-webkit-border-radius:0 0 17px 0;
+	-ms-border-radius:0 0 17px 0;
 }
 input[type=button]:hover,[type=submit]:hover,[type=reset]:hover{
 background:#0CF;
