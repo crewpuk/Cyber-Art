@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Waktu pembuatan: 14. Februari 2012 jam 23:14
+-- Waktu pembuatan: 18. Februari 2012 jam 22:33
 -- Versi Server: 5.0.45
 -- Versi PHP: 5.2.3
 
@@ -24,6 +24,7 @@ CREATE TABLE `m_admin` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `hit` varchar(100) NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
@@ -32,7 +33,7 @@ CREATE TABLE `m_admin` (
 -- Dumping data untuk tabel `m_admin`
 -- 
 
-INSERT INTO `m_admin` VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin');
+INSERT INTO `m_admin` VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '1');
 
 -- --------------------------------------------------------
 
@@ -49,6 +50,7 @@ CREATE TABLE `m_agenda` (
   `waktu_agenda` varchar(55) NOT NULL,
   `pengirim` varchar(55) NOT NULL,
   `tanggal` date NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -56,8 +58,8 @@ CREATE TABLE `m_agenda` (
 -- Dumping data untuk tabel `m_agenda`
 -- 
 
-INSERT INTO `m_agenda` VALUES (1, 'Sunatan', 'test123', '2012-02-02', 'Jakarta', '08.00', 'Admin', '2012-01-12');
-INSERT INTO `m_agenda` VALUES (2, 'Nikahan', 'test123123123', '2012-02-08', 'Bogor', '09.00', 'User', '2012-01-11');
+INSERT INTO `m_agenda` VALUES (1, 'Sunatan', 'test123', '2012-02-02', 'Jakarta', '08.00', 'Admin', '2012-01-12', '1');
+INSERT INTO `m_agenda` VALUES (2, 'Nikahan', 'test123123123', '2012-02-08', 'Bogor', '09.00', 'User', '2012-01-11', '1');
 
 -- --------------------------------------------------------
 
@@ -72,6 +74,7 @@ CREATE TABLE `m_contact_us` (
   `subject` varchar(50) NOT NULL,
   `pesan` text NOT NULL,
   `tanggal` date NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -109,6 +112,9 @@ INSERT INTO `m_counter` VALUES ('2012-01-30', '127.0.0.1', 1);
 INSERT INTO `m_counter` VALUES ('2012-02-09', '127.0.0.1|0.0.0.0', 120);
 INSERT INTO `m_counter` VALUES ('2012-02-12', '0.0.0.0', 4);
 INSERT INTO `m_counter` VALUES ('2012-02-14', '0.0.0.0', 7);
+INSERT INTO `m_counter` VALUES ('2012-02-16', '0.0.0.0', 26);
+INSERT INTO `m_counter` VALUES ('2012-02-17', '0.0.0.0', 14);
+INSERT INTO `m_counter` VALUES ('2012-02-18', '0.0.0.0', 1);
 
 -- --------------------------------------------------------
 
@@ -121,6 +127,7 @@ CREATE TABLE `m_download` (
   `title` varchar(50) NOT NULL,
   `doc` varchar(50) NOT NULL,
   `view` int(5) NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
@@ -128,9 +135,9 @@ CREATE TABLE `m_download` (
 -- Dumping data untuk tabel `m_download`
 -- 
 
-INSERT INTO `m_download` VALUES (1, 'Modul Pascal', 'Modul Pascal.pdf', 0);
-INSERT INTO `m_download` VALUES (2, 'Latihan', '1.doc', 1);
-INSERT INTO `m_download` VALUES (5, 'Proses Enkripsi', 'proses.odt', 1);
+INSERT INTO `m_download` VALUES (1, 'Modul Pascal', 'Modul Pascal.pdf', 0, '1');
+INSERT INTO `m_download` VALUES (2, 'Latihan', '1.doc', 1, '1');
+INSERT INTO `m_download` VALUES (5, 'Proses Enkripsi', 'proses.odt', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -145,18 +152,25 @@ CREATE TABLE `m_gallery` (
   `file` varchar(150) NOT NULL,
   `deskripsi` text NOT NULL,
   `tanggal` date NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id_img`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 -- 
 -- Dumping data untuk tabel `m_gallery`
 -- 
 
-INSERT INTO `m_gallery` VALUES (1, 'album kenangan', 'album coba', 'arya.jpg', 'hahahahahahahahahahahahahhahaha', '2012-01-09');
-INSERT INTO `m_gallery` VALUES (2, 'album kenangan', '2', 'rian.jpg', 'Rian Nugraha', '2012-01-11');
-INSERT INTO `m_gallery` VALUES (4, 'crewpuk', 'feldy', 'feldy.jpg', 'Feldy Yusuf', '2012-02-09');
-INSERT INTO `m_gallery` VALUES (5, 'crewpuk', 'rangga', 'rangga.jpg', 'Rangga Eka Putra', '2012-02-09');
-INSERT INTO `m_gallery` VALUES (6, 'janwari', 'janwari', 'janwari.jpg', 'Janwari Farqi Saptio', '2012-02-09');
+INSERT INTO `m_gallery` VALUES (1, 'album kenangan', 'album coba', 'feldy.jpg', 'hahahahahahahahahahahahahhahaha', '2012-01-09', '1');
+INSERT INTO `m_gallery` VALUES (2, 'album kenangan', '2', 'rian.jpg', 'Rian Nugraha', '2012-01-11', '1');
+INSERT INTO `m_gallery` VALUES (4, 'crewpuk', 'feldy', 'feldy.jpg', 'Feldy Yusuf', '2012-02-09', '1');
+INSERT INTO `m_gallery` VALUES (5, 'crewpuk', 'rangga', 'rangga.jpg', 'Rangga Eka Putra', '2012-02-09', '1');
+INSERT INTO `m_gallery` VALUES (6, 'janwari', 'janwari', 'janwari.jpg', 'Janwari Farqi Saptio', '2012-02-09', '1');
+INSERT INTO `m_gallery` VALUES (7, 'a', 'sdasda', 'arya.jpg', 'sdasdasdsad', '2012-02-16', '1');
+INSERT INTO `m_gallery` VALUES (8, 'a', 'rian.jpg', 'rian.jpg', 'rian.jpg', '2012-02-16', '1');
+INSERT INTO `m_gallery` VALUES (9, 'a', 'rian.jpg', 'rian.jpg', 'rian.jpg', '2012-02-16', '1');
+INSERT INTO `m_gallery` VALUES (10, 'rian.jpg', 'rian.jpg', 'rian.jpg', 'rian.jpg', '2012-02-23', '1');
+INSERT INTO `m_gallery` VALUES (11, 'feldy.jpg', 'feldy.jpg', 'feldy.jpg', 'feldy.jpg', '2012-02-16', '1');
+INSERT INTO `m_gallery` VALUES (12, 'rangga.jpg', 'rangga.jpg', 'rangga.jpg', 'rangga.jpg', '2012-02-16', '1');
 
 -- --------------------------------------------------------
 
@@ -171,7 +185,7 @@ CREATE TABLE `m_his` (
   `time` time NOT NULL,
   `time_u` bigint(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=91 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=106 ;
 
 -- 
 -- Dumping data untuk tabel `m_his`
@@ -267,6 +281,21 @@ INSERT INTO `m_his` VALUES (87, '0.0.0.0', '2012-02-09', '21:23:17', 1328797397)
 INSERT INTO `m_his` VALUES (88, '0.0.0.0', '2012-02-12', '05:50:32', 1329000632);
 INSERT INTO `m_his` VALUES (89, '0.0.0.0', '2012-02-12', '06:17:49', 1329002269);
 INSERT INTO `m_his` VALUES (90, '0.0.0.0', '2012-02-14', '20:14:27', 1329225267);
+INSERT INTO `m_his` VALUES (91, '0.0.0.0', '2012-02-16', '20:36:46', 1329399406);
+INSERT INTO `m_his` VALUES (92, '0.0.0.0', '2012-02-16', '21:11:23', 1329401483);
+INSERT INTO `m_his` VALUES (93, '0.0.0.0', '2012-02-16', '21:17:12', 1329401832);
+INSERT INTO `m_his` VALUES (94, '0.0.0.0', '2012-02-16', '21:22:20', 1329402140);
+INSERT INTO `m_his` VALUES (95, '0.0.0.0', '2012-02-16', '21:29:10', 1329402550);
+INSERT INTO `m_his` VALUES (96, '0.0.0.0', '2012-02-16', '21:34:13', 1329402853);
+INSERT INTO `m_his` VALUES (97, '0.0.0.0', '2012-02-16', '21:57:30', 1329404250);
+INSERT INTO `m_his` VALUES (98, '0.0.0.0', '2012-02-16', '22:07:08', 1329404828);
+INSERT INTO `m_his` VALUES (99, '0.0.0.0', '2012-02-17', '07:45:50', 1329439550);
+INSERT INTO `m_his` VALUES (100, '0.0.0.0', '2012-02-17', '08:58:28', 1329443908);
+INSERT INTO `m_his` VALUES (101, '0.0.0.0', '2012-02-17', '09:04:42', 1329444282);
+INSERT INTO `m_his` VALUES (102, '0.0.0.0', '2012-02-17', '10:27:32', 1329449252);
+INSERT INTO `m_his` VALUES (103, '0.0.0.0', '2012-02-17', '19:22:16', 1329481336);
+INSERT INTO `m_his` VALUES (104, '0.0.0.0', '2012-02-17', '21:04:27', 1329487467);
+INSERT INTO `m_his` VALUES (105, '0.0.0.0', '2012-02-18', '06:57:46', 1329523066);
 
 -- --------------------------------------------------------
 
@@ -281,6 +310,7 @@ CREATE TABLE `m_komentar` (
   `website` varchar(50) NOT NULL,
   `isi` text NOT NULL,
   `tanggal` date NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -288,7 +318,7 @@ CREATE TABLE `m_komentar` (
 -- Dumping data untuk tabel `m_komentar`
 -- 
 
-INSERT INTO `m_komentar` VALUES (1, 1, 'Arya', 'http://aryakusuma.co.cc/', 'Kalo SEO di co.cc apa masih berlaku ya..?', '2012-01-12');
+INSERT INTO `m_komentar` VALUES (1, 1, 'Arya', 'http://aryakusuma.co.cc/', 'Kalo SEO di co.cc apa masih berlaku ya..?', '2012-01-12', '1');
 
 -- --------------------------------------------------------
 
@@ -301,6 +331,7 @@ CREATE TABLE `m_navigation_menu` (
   `id_parent` int(5) NOT NULL default '0',
   `title` varchar(50) NOT NULL,
   `url` varchar(100) NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
@@ -308,14 +339,14 @@ CREATE TABLE `m_navigation_menu` (
 -- Dumping data untuk tabel `m_navigation_menu`
 -- 
 
-INSERT INTO `m_navigation_menu` VALUES (1, 0, 'Beranda', '[main]');
-INSERT INTO `m_navigation_menu` VALUES (2, 0, 'Galeri', '[home]gallery');
-INSERT INTO `m_navigation_menu` VALUES (3, 0, 'Profil', '#');
-INSERT INTO `m_navigation_menu` VALUES (4, 0, 'Program Studi', '#');
-INSERT INTO `m_navigation_menu` VALUES (5, 0, 'Pendaftaran Online', '#');
-INSERT INTO `m_navigation_menu` VALUES (6, 3, 'Cyber-Art', '#');
-INSERT INTO `m_navigation_menu` VALUES (7, 4, 'Web Design', '#');
-INSERT INTO `m_navigation_menu` VALUES (8, 4, 'Jaringan', '#');
+INSERT INTO `m_navigation_menu` VALUES (1, 0, 'Beranda', '[main]', '1');
+INSERT INTO `m_navigation_menu` VALUES (2, 0, 'Galeri', '[home]gallery', '1');
+INSERT INTO `m_navigation_menu` VALUES (3, 0, 'Profil', '#', '1');
+INSERT INTO `m_navigation_menu` VALUES (4, 0, 'Program Studi', '#', '1');
+INSERT INTO `m_navigation_menu` VALUES (5, 0, 'Pendaftaran Online', '#', '1');
+INSERT INTO `m_navigation_menu` VALUES (6, 3, 'Cyber-Art', '#', '1');
+INSERT INTO `m_navigation_menu` VALUES (7, 4, 'Web Design', '#', '1');
+INSERT INTO `m_navigation_menu` VALUES (8, 4, 'Jaringan', '#', '1');
 
 -- --------------------------------------------------------
 
@@ -329,38 +360,49 @@ CREATE TABLE `m_posting` (
   `title` varchar(50) NOT NULL,
   `isi` text NOT NULL,
   `kategori` varchar(25) NOT NULL,
-  `image` varchar(50) default NULL,
+  `image` varchar(150) default NULL,
   `view` int(5) NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 -- 
 -- Dumping data untuk tabel `m_posting`
 -- 
 
-INSERT INTO `m_posting` VALUES (2, '2011-12-29', 'Membasmi Virus Sality', 'Tulisan kali ini judulnya mungkin agak sadis ya, tapi pemilihan judul kali ini didasari karena kejengkelan dengan penemuan virus di komputer kantor yang saya gunakan sehari-hari. Virus apakah itu? Yap sesuai judul tulisan diatas, virus yang saya temukan dan dideteksi anti virus Smadav dan AVG yg terpasang di komputer saya adalah Sality, tepatnya Sality.101.\r\nNah yang membuat jengkel lagi adalah ternyata kedua antivirus yg saya gunakan hanya dapat menghapus ketika virus terdeteksi dan tidak memperbaiki registry dan autorun.inf yang diinfeksi virus ini, akibatnya saya harus mengutak-atik registry secara manual. Oleh karena itu saya mencari alternatif penyembuhan alternatif lain, tapi yang jelas bukan dukun ya. \r\nSetelah browsing sana-sini, akhirnya saya mendapati sebuah alternatif penyembuhan yang sudah saya buktikan efektif mengatasi Sality.101, nama aplikasi tersebut adalah Salitykiller (cocok kan namanya sebagai pembunuh gratisan?)  . Aplikasi keluaran Kaspersky Lab ini mencari dan memperbaiki file yang terinfeksi dengan lebih baik.\r\nCara penggunaannya juga sangat mudah, tinggal di ekstrak, kemudian jalankan Salitykiller.exe yang terdapat didalamnya, selanjutnya biarkan aplikasi ini bekerja hingga semua komponen registry dan file di-scan dengan sempurna dan secara otomatis akan diperbaiki oleh antivirus ini.\r\n\r\nSumber : http://bangdanu.wordpress.com', 'Artikel', 'salitykiller.jpg', 4);
-INSERT INTO `m_posting` VALUES (3, '2012-02-14', 'Arya Kusuma', 'au dah tuh si Arya yg buat.wwkwkwkwk', 'Artkel', 'crewpukLogoJadi.png', 2);
-INSERT INTO `m_posting` VALUES (4, '2012-02-14', 'Arya Kusuma', 'au dah tuh si Arya yg buat.wwkwkwkwk', 'Artkel', 'crewpukLogoJadi.png', 1);
-INSERT INTO `m_posting` VALUES (5, '2012-02-14', 'rian', 'ee', 'rian', 'gambar.jpg', 0);
-INSERT INTO `m_posting` VALUES (6, '2012-02-14', 'judul', 'isi', 'artikel', NULL, 0);
-INSERT INTO `m_posting` VALUES (7, '2012-02-14', 'sdjaskdj', 'dsajkdas', 'dsjkadlas', NULL, 0);
-INSERT INTO `m_posting` VALUES (8, '2012-02-14', 'jsdjksjd', 'djslkjdlaj', 'dsjkadjalskj', NULL, 0);
-INSERT INTO `m_posting` VALUES (9, '2012-02-14', 'rianr', 'rianr', 'rianr', NULL, 0);
-INSERT INTO `m_posting` VALUES (10, '2012-02-14', 'a', 'a', 'a', NULL, 0);
-INSERT INTO `m_posting` VALUES (11, '2012-02-14', 'sas', 'sdasd', 'dsad', NULL, 0);
-INSERT INTO `m_posting` VALUES (12, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
-INSERT INTO `m_posting` VALUES (13, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
-INSERT INTO `m_posting` VALUES (14, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
-INSERT INTO `m_posting` VALUES (15, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0);
-INSERT INTO `m_posting` VALUES (16, '2012-02-14', 'Arya Kusuma', 'bau', 'apek', '406258_341142615896311_100000017276307_1410053_173', 0);
-INSERT INTO `m_posting` VALUES (17, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
-INSERT INTO `m_posting` VALUES (18, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
-INSERT INTO `m_posting` VALUES (19, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
-INSERT INTO `m_posting` VALUES (20, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
-INSERT INTO `m_posting` VALUES (21, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
-INSERT INTO `m_posting` VALUES (22, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
-INSERT INTO `m_posting` VALUES (23, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
-INSERT INTO `m_posting` VALUES (24, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0);
+INSERT INTO `m_posting` VALUES (2, '2011-12-29', 'Membasmi Virus Sality', 'Tulisan kali ini judulnya mungkin agak sadis ya, tapi pemilihan judul kali ini didasari karena kejengkelan dengan penemuan virus di komputer kantor yang saya gunakan sehari-hari. Virus apakah itu? Yap sesuai judul tulisan diatas, virus yang saya temukan dan dideteksi anti virus Smadav dan AVG yg terpasang di komputer saya adalah Sality, tepatnya Sality.101.\r\nNah yang membuat jengkel lagi adalah ternyata kedua antivirus yg saya gunakan hanya dapat menghapus ketika virus terdeteksi dan tidak memperbaiki registry dan autorun.inf yang diinfeksi virus ini, akibatnya saya harus mengutak-atik registry secara manual. Oleh karena itu saya mencari alternatif penyembuhan alternatif lain, tapi yang jelas bukan dukun ya. \r\nSetelah browsing sana-sini, akhirnya saya mendapati sebuah alternatif penyembuhan yang sudah saya buktikan efektif mengatasi Sality.101, nama aplikasi tersebut adalah Salitykiller (cocok kan namanya sebagai pembunuh gratisan?)  . Aplikasi keluaran Kaspersky Lab ini mencari dan memperbaiki file yang terinfeksi dengan lebih baik.\r\nCara penggunaannya juga sangat mudah, tinggal di ekstrak, kemudian jalankan Salitykiller.exe yang terdapat didalamnya, selanjutnya biarkan aplikasi ini bekerja hingga semua komponen registry dan file di-scan dengan sempurna dan secara otomatis akan diperbaiki oleh antivirus ini.\r\n\r\nSumber : http://bangdanu.wordpress.com', 'Artikel', 'salitykiller.jpg', 4, '1');
+INSERT INTO `m_posting` VALUES (3, '2012-02-18', 'Arya Kusuma', 'au dah tuh si Arya yg buat.wwkwkwkwk', 'Artkel', '43303527_55554827_9399.jpg', 0, '0');
+INSERT INTO `m_posting` VALUES (4, '2012-02-14', 'Arya Kusuma', 'au dah tuh si Arya yg buat.wwkwkwkwk', 'Artkel', 'crewpukLogoJadi.png', 1, '1');
+INSERT INTO `m_posting` VALUES (5, '2012-02-14', 'rian', 'ee', 'rian', 'gambar.jpg', 0, '0');
+INSERT INTO `m_posting` VALUES (6, '2012-02-14', 'judul', 'isi', 'artikel', NULL, 0, '1');
+INSERT INTO `m_posting` VALUES (7, '2012-02-14', 'sdjaskdj', 'dsajkdas', 'dsjkadlas', NULL, 0, '1');
+INSERT INTO `m_posting` VALUES (8, '2012-02-17', 'jsdjksjd', 'djslkjdlaj', 'dsjkadjalskj', NULL, 0, '1');
+INSERT INTO `m_posting` VALUES (9, '2012-02-14', 'rianr', 'rianr', 'rianr', NULL, 0, '1');
+INSERT INTO `m_posting` VALUES (10, '2012-02-14', 'a', 'a', 'a', NULL, 0, '0');
+INSERT INTO `m_posting` VALUES (11, '2012-02-14', 'sas', 'sdasd', 'dsad', NULL, 0, '0');
+INSERT INTO `m_posting` VALUES (12, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0, '1');
+INSERT INTO `m_posting` VALUES (13, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0, '1');
+INSERT INTO `m_posting` VALUES (14, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0, '1');
+INSERT INTO `m_posting` VALUES (15, '2012-02-14', 'knknknknknknknknknk', 'kknkknkknkkn', 'kknkknkknkknkkn', '406258_341142615896311_100000017276307_1410053_173', 0, '1');
+INSERT INTO `m_posting` VALUES (16, '2012-02-14', 'Arya Kusuma', 'bau', 'apek', '406258_341142615896311_100000017276307_1410053_173', 0, '0');
+INSERT INTO `m_posting` VALUES (17, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (18, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (19, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (20, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (21, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (22, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (23, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (24, '2012-02-14', 'jiijijijijij', 'ng', 'krak', 'Koala.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (25, '2012-02-17', 'ghjkjhjk', 'dgfdfgdgfdgfd', 'Artikel', '406258_341142615896311_100000017276307_1410053_173', 0, '0');
+INSERT INTO `m_posting` VALUES (26, '2012-02-17', 'Rian coba', 'haiiii', 'Artikel', NULL, 0, '1');
+INSERT INTO `m_posting` VALUES (28, '2012-02-17', 'Rian', 'rian', 'Artikel', '35423736_85898663_8187.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (27, '2012-02-17', 'Rian', 'haii', 'Artikel', '86652765_58571354_0212.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (29, '2012-02-17', 'jiijijijijijs', 'ngs', 'kraks', '40142381_91465170_4393.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (30, '2012-02-17', 'jiijijijijijs', 'ngs', 'kraks', '79753450_44434667_8444.', 0, '1');
+INSERT INTO `m_posting` VALUES (31, '2012-02-17', 'jiijijijijijs', 'ngs', 'kraks', '10148606_60496502_4839.', 0, '1');
+INSERT INTO `m_posting` VALUES (32, '2012-02-17', 'jiijijijijijsss', 'ngsss', 'kraksss', '89933594_12404350_5218.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (33, '2012-02-17', 'jiijijijijijsi', 'ngsi', 'kraksi', '44013364_47230556_6014.jpg', 0, '1');
+INSERT INTO `m_posting` VALUES (34, '2012-02-17', 'jiijijijijijsiao', 'ngsiao', 'kraksiao', '59726162_03249949_8541.jpg', 0, '1');
 
 -- --------------------------------------------------------
 
@@ -374,6 +416,7 @@ CREATE TABLE `m_shoutbox` (
   `url` varchar(150) NOT NULL,
   `pesan` varchar(500) NOT NULL,
   `time_stamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -381,10 +424,10 @@ CREATE TABLE `m_shoutbox` (
 -- Dumping data untuk tabel `m_shoutbox`
 -- 
 
-INSERT INTO `m_shoutbox` VALUES (1, 'rian', 'rian.com', 'hai', '2012-01-14 07:18:19');
-INSERT INTO `m_shoutbox` VALUES (2, 'aaa', 'eee', 'hello:):(:]:D;)', '2012-01-14 09:25:47');
-INSERT INTO `m_shoutbox` VALUES (3, 'rian', 'rianrian', 'rian', '2012-01-14 10:09:22');
-INSERT INTO `m_shoutbox` VALUES (4, 'a', 'http://www.a.a', 'a', '2012-01-14 10:11:28');
+INSERT INTO `m_shoutbox` VALUES (1, 'rian', 'rian.com', 'hai', '2012-01-14 07:18:19', '1');
+INSERT INTO `m_shoutbox` VALUES (2, 'aaa', 'eee', 'hello:):(:]:D;)', '2012-01-14 09:25:47', '1');
+INSERT INTO `m_shoutbox` VALUES (3, 'rian', 'rianrian', 'rian', '2012-01-14 10:09:22', '1');
+INSERT INTO `m_shoutbox` VALUES (4, 'a', 'http://www.a.a', 'a', '2012-01-14 10:11:28', '1');
 
 -- --------------------------------------------------------
 
@@ -399,6 +442,7 @@ CREATE TABLE `m_testimoni` (
   `komentar` text NOT NULL,
   `photo` varchar(50) NOT NULL,
   `tanggal` date NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
@@ -406,11 +450,11 @@ CREATE TABLE `m_testimoni` (
 -- Dumping data untuk tabel `m_testimoni`
 -- 
 
-INSERT INTO `m_testimoni` VALUES (1, 'Rian Nugraha', 'Guru', 'Dengan saya mengajar di Cyber Art Revolution, semakin menambah pengalaman saya...', 'rian.jpg', '2011-12-30');
-INSERT INTO `m_testimoni` VALUES (2, 'Feldy Yusuf', 'Programmer Artivisi', 'Sebuah CV yang cukup bagus dalam bidang TI...', 'feldy.jpg', '2011-12-30');
-INSERT INTO `m_testimoni` VALUES (3, 'Janwari Farqi S.', 'Programmer Gandsoft', 'Sistem pengajaran yang unik...', 'janwari.jpg', '2011-12-30');
-INSERT INTO `m_testimoni` VALUES (4, 'Arya Kusuma', 'Pelajar SMK 1 Depok', 'Dengan belajar disini, saya jadi semakin percaya diri...', 'arya.jpg', '2011-12-30');
-INSERT INTO `m_testimoni` VALUES (5, 'Rangga Eka P.', 'Programmer Artivisi', 'Seru juga belajar disini !', 'rangga.jpg', '2011-12-30');
+INSERT INTO `m_testimoni` VALUES (1, 'Rian Nugraha', 'Guru', 'Dengan saya mengajar di Cyber Art Revolution, semakin menambah pengalaman saya...', 'rian.jpg', '2011-12-30', '1');
+INSERT INTO `m_testimoni` VALUES (2, 'Feldy Yusuf', 'Programmer Artivisi', 'Sebuah CV yang cukup bagus dalam bidang TI...', 'feldy.jpg', '2011-12-30', '1');
+INSERT INTO `m_testimoni` VALUES (3, 'Janwari Farqi S.', 'Programmer Gandsoft', 'Sistem pengajaran yang unik...', 'janwari.jpg', '2011-12-30', '1');
+INSERT INTO `m_testimoni` VALUES (4, 'Arya Kusuma', 'Pelajar SMK 1 Depok', 'Dengan belajar disini, saya jadi semakin percaya diri...', 'arya.jpg', '2011-12-30', '1');
+INSERT INTO `m_testimoni` VALUES (5, 'Rangga Eka P.', 'Programmer Artivisi', 'Seru juga belajar disini !', 'rangga.jpg', '2011-12-30', '1');
 
 -- --------------------------------------------------------
 
@@ -422,6 +466,7 @@ CREATE TABLE `m_votting` (
   `id` int(10) NOT NULL auto_increment,
   `nama` varchar(100) NOT NULL,
   `jml` bigint(15) NOT NULL,
+  `status` enum('1','0') NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -429,7 +474,7 @@ CREATE TABLE `m_votting` (
 -- Dumping data untuk tabel `m_votting`
 -- 
 
-INSERT INTO `m_votting` VALUES (1, 'Kuliah + Kerja', 3);
-INSERT INTO `m_votting` VALUES (2, 'Kerja', 7);
-INSERT INTO `m_votting` VALUES (3, 'Kuliah di PTN', 30);
-INSERT INTO `m_votting` VALUES (4, 'Lain - lain', 5);
+INSERT INTO `m_votting` VALUES (1, 'Kuliah + Kerja', 3, '1');
+INSERT INTO `m_votting` VALUES (2, 'Kerja', 7, '1');
+INSERT INTO `m_votting` VALUES (3, 'Kuliah di PTN', 30, '1');
+INSERT INTO `m_votting` VALUES (4, 'Lain - lain', 5, '1');
